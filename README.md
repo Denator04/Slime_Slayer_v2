@@ -1,1 +1,1 @@
-Dziennik zmian
+Dziennik zmian:
