@@ -55,7 +55,6 @@ func start_flip() -> void:
 
 	var dir = Vector2.LEFT if sprite.flip_h else Vector2.RIGHT
 
-	# nadaj impuls
 	velocity = dir * speed * flip_distance_multiplier
 	move_and_slide()
 
