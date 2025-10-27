@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://dyl31oi56th1l"]
+[gd_scene load_steps=31 format=3 uid="uid://dyl31oi56th1l"]
 
 [ext_resource type="Script" uid="uid://c6liex3oknmyh" path="res://player.gd" id="1_erxrr"]
 [ext_resource type="Texture2D" uid="uid://xkwjuhl517su" path="res://Assets/knight.png" id="2_v43m6"]
+[ext_resource type="Texture2D" uid="uid://bmmd4v8svjdv4" path="res://Assets/tree.png" id="3_v43m6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vc6xr"]
 atlas = ExtResource("2_v43m6")
@@ -195,9 +196,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_emtxu"]
 size = Vector2(44.5, 68)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vc6xr"]
+size = Vector2(78, 76)
+
 [node name="Plansza" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(17, 94)
 disable_mode = 2
 motion_mode = 1
 script = ExtResource("1_erxrr")
@@ -213,3 +218,13 @@ autoplay = "rycerz_idle"
 [node name="Player_Hitbox" type="CollisionShape2D" parent="Player"]
 position = Vector2(75.25, 93)
 shape = SubResource("RectangleShape2D_emtxu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(490, 182)
+shape = SubResource("RectangleShape2D_vc6xr")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(0, -2.861023e-06)
+scale = Vector2(4.8437505, 4.7812495)
+texture = ExtResource("3_v43m6")
