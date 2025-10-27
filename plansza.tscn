@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dyl31oi56th1l"]
+[gd_scene load_steps=39 format=3 uid="uid://dyl31oi56th1l"]
 
 [ext_resource type="Script" uid="uid://c6liex3oknmyh" path="res://player.gd" id="1_erxrr"]
 [ext_resource type="Texture2D" uid="uid://xkwjuhl517su" path="res://Assets/knight.png" id="2_v43m6"]
@@ -19,6 +19,38 @@ region = Rect2(64, 224, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_w2waa"]
 atlas = ExtResource("2_v43m6")
 region = Rect2(96, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v43m6"]
+atlas = ExtResource("2_v43m6")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg2gi"]
+atlas = ExtResource("2_v43m6")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emtxu"]
+atlas = ExtResource("2_v43m6")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qu6yg"]
+atlas = ExtResource("2_v43m6")
+region = Rect2(96, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqsv3"]
+atlas = ExtResource("2_v43m6")
+region = Rect2(128, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2ojs"]
+atlas = ExtResource("2_v43m6")
+region = Rect2(160, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yek1t"]
+atlas = ExtResource("2_v43m6")
+region = Rect2(192, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xo5g0"]
+atlas = ExtResource("2_v43m6")
+region = Rect2(224, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kkyxt"]
 atlas = ExtResource("2_v43m6")
@@ -124,6 +156,35 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_v43m6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hg2gi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emtxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qu6yg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqsv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2ojs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yek1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xo5g0")
+}],
+"loop": false,
+"name": &"rycerz_flip",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_kkyxt")
 }, {
 "duration": 1.0,
@@ -188,7 +249,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h74ni")
 }],
-"loop": true,
+"loop": false,
 "name": &"rycerz_walk",
 "speed": 5.0
 }]
@@ -212,8 +273,10 @@ movement_speed = 130.0
 position = Vector2(75, 73)
 scale = Vector2(4.59375, 4.59375)
 sprite_frames = SubResource("SpriteFrames_hg2gi")
-animation = &"rycerz_idle"
+animation = &"rycerz_flip"
 autoplay = "rycerz_idle"
+frame = 7
+frame_progress = 1.0
 
 [node name="Player_Hitbox" type="CollisionShape2D" parent="Player"]
 position = Vector2(75.25, 93)
