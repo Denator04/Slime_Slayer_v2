@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 @export var movement_speed: float = 500
 @export var run_multiplier: float = 2
-@export var flip_distance_multiplier: float = 1.2 # jak daleko leci w czasie flipu
+@export var flip_distance_multiplier: float = 1.2 
 
 var character_direction: Vector2 = Vector2.ZERO
 var is_flipping: bool = false
@@ -48,12 +48,11 @@ func start_flip() -> void:
 	is_flipping = true
 	sprite.play("rycerz_flip")
 
-	# wyliczamy bazową prędkość z momentu naciśnięcia
+	
 	var speed = movement_speed
 	if Input.is_action_pressed("ui_shift"):
-		speed *= run_multiplier  # szybszy przewrót jeśli sprintujesz
+		speed *= run_multiplier 
 
-	# kierunek przewrotu (w stronę, w którą patrzy postać)
 	var dir = Vector2.LEFT if sprite.flip_h else Vector2.RIGHT
 
 	# nadaj impuls
@@ -63,11 +62,9 @@ func start_flip() -> void:
 	await sprite.animation_finished
 	_on_flip_finished()
 
-
 func _on_flip_finished() -> void:
 	is_flipping = false
 
-	# wróć do odpowiedniej animacji po przewrocie
 	if character_direction != Vector2.ZERO:
 		sprite.play("rycerz_walk")
 	else:
