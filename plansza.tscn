@@ -198,17 +198,17 @@ size = Vector2(44.5, 68)
 [node name="Plansza" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
+disable_mode = 2
 motion_mode = 1
 script = ExtResource("1_erxrr")
 movement_speed = 130.0
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Player"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(75, 73)
 scale = Vector2(4.59375, 4.59375)
 sprite_frames = SubResource("SpriteFrames_hg2gi")
 animation = &"rycerz_idle"
 autoplay = "rycerz_idle"
-frame_progress = 0.8989357
 
 [node name="Player_Hitbox" type="CollisionShape2D" parent="Player"]
 position = Vector2(75.25, 93)
