@@ -11,10 +11,6 @@ func _physics_process(delta):
 	character_direction.x = Input.get_axis("ui_left", "ui_right")
 	character_direction.y = Input.get_axis("ui_up", "ui_down")
 	
-	if Input.is_action_pressed("ui_left"): print("lewo")
-	if Input.is_action_pressed("ui_right"): print("prawo")
-	if Input.is_action_pressed("ui_up"): print("góra")
-	if Input.is_action_pressed("ui_down"): print("dół")
 
 
 	if character_direction != Vector2.ZERO:
