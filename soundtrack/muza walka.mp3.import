@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://3xuqrqleq24n"
+path="res://.godot/imported/muza walka.mp3-1da03f42472b665aeaba11934f4d6719.mp3str"
+
+[deps]
+
+source_file="res://soundtrack/muza walka.mp3"
+dest_files=["res://.godot/imported/muza walka.mp3-1da03f42472b665aeaba11934f4d6719.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
