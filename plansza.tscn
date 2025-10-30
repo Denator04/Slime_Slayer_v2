@@ -338,6 +338,7 @@ animations = [{
 texture = ExtResource("3_v43m6")
 use_texture_padding = false
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_of0av"]
 texture = ExtResource("4_vc6xr")
@@ -365,6 +366,7 @@ texture = ExtResource("5_6dnbh")
 3:3/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_w2waa"]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_6dnbh")
 sources/2 = SubResource("TileSetAtlasSource_of0av")
 sources/3 = SubResource("TileSetAtlasSource_w2waa")
@@ -390,6 +392,10 @@ frame_progress = 1.0
 [node name="Player_Hitbox" type="CollisionShape2D" parent="Player"]
 position = Vector2(75.25, 93)
 shape = SubResource("RectangleShape2D_emtxu")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [node name="Slime" type="CharacterBody2D" parent="."]
 script = ExtResource("3_w2waa")
