@@ -31,11 +31,11 @@ func _physics_process(delta):
 		elif character_direction.x > 0:
 			sprite.flip_h = false
 
-		if sprite.animation != "rycerz_walk" and not is_flipping:
+		if !is_flipping and character_direction != Vector2.ZERO:
 			sprite.play("rycerz_walk")
 	else:
 		velocity = Vector2.ZERO
-		if sprite.animation != "rycerz_idle" and not is_flipping:
+		if sprite.animation != "rycerz_idle" and not is_flipping and character_direction == Vector2.ZERO:
 			sprite.play("rycerz_idle")
 
 	if Input.is_action_just_pressed("ui_space") and not is_flipping:

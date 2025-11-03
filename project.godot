@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Slime_Slayer_v2"
-run/main_scene="uid://dyl31oi56th1l"
-config/features=PackedStringArray("4.5", "Forward Plus")
+run/main_scene="res://plansza.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="Slime_Slayer_v2"
 
 [file_customization]
 
@@ -75,4 +79,4 @@ pointing/emulate_touch_from_mouse=true
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-environment/defaults/default_clear_color=Color(0.8392254, 0.619063, 0.49897146, 1)
+environment/defaults/default_clear_color=Color(0.839225, 0.619063, 0.498971, 1)
