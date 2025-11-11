@@ -138,6 +138,11 @@ region = Rect2(224, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hg2gi"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vc6xr")
@@ -384,7 +389,7 @@ movement_speed = 130.0
 position = Vector2(75, 73)
 scale = Vector2(4.59375, 4.59375)
 sprite_frames = SubResource("SpriteFrames_hg2gi")
-animation = &"rycerz_flip"
+animation = &"new_animation"
 autoplay = "rycerz_idle"
 
 [node name="Player_Hitbox" type="CollisionShape2D" parent="Player"]
