@@ -8,8 +8,40 @@ extends CharacterBody2D
 
 var character_direction: Vector2 = Vector2.ZERO
 var is_flipping: bool = false
+var player_chosen = 1
+
+#	****	animation variables		**** 
+var idle_an
+var walk_animation: String
+
+
+#	****	Animation functions		****			a to 
+func player_walk(a, b, c, d):
+	if character_direction.x > 0:
+		walk_animation = a
+	elif character_direction.x < 0:
+		walk_animation = b
+	elif character_direction.y > 0:
+		walk_animation = c
+	elif character_direction.y < 0:
+		walk_animation = d
+
+
+
+
+func player_stats() -> void:
+	if player_chosen == 1:
+		idle_an = "rycerz_idle_B"
+		player_walk("walk_side_B", "walk_side_B", "walk_front_B", "walk_back_B")
+		
+		
+func _ready():
+	player_stats()
+	
 
 func _physics_process(delta):
+	player_stats()
+	
 	if is_flipping:
 		move_and_slide()
 		return
@@ -32,11 +64,11 @@ func _physics_process(delta):
 			sprite.flip_h = false
 
 		if !is_flipping and character_direction != Vector2.ZERO:
-			sprite.play("rycerz_walk")
+			sprite.play(walk_animation)
 	else:
 		velocity = Vector2.ZERO
-		if sprite.animation != "rycerz_idle" and not is_flipping and character_direction == Vector2.ZERO:
-			sprite.play("rycerz_idle")
+		if sprite.animation != idle_an and not is_flipping and character_direction == Vector2.ZERO:
+			sprite.play(idle_an)
 
 	if Input.is_action_just_pressed("ui_space") and not is_flipping:
 		start_flip()
@@ -65,6 +97,6 @@ func _on_flip_finished() -> void:
 	is_flipping = false
 
 	if character_direction != Vector2.ZERO:
-		sprite.play("rycerz_walk")
+		sprite.play(walk_animation)
 	else:
-		sprite.play("rycerz_idle")
+		sprite.play(idle_an)

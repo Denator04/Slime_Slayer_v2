@@ -10,3 +10,5 @@ Dziennik zmian:
 		if !is_flipping and character_direction != Vector2.ZERO:
 			sprite.play("rycerz_walk") - teraz animacja biegania sie loopuje a nie zatrzymuje po 1 razie
 			
+
+13.11 - nowa postac, chodzenie dziala tak jak nalezy, dodal bym tez teraz atak ale idziemy do marcina XD
