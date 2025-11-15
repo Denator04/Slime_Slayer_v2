@@ -10,12 +10,9 @@ var character_direction: Vector2 = Vector2.ZERO
 var is_flipping: bool = false
 var player_chosen = 1
 
-#	****	animation variables		**** 
 var idle_an
 var walk_animation: String
 
-
-#	****	Animation functions		****			a to 
 func player_walk(a, b, c, d):
 	if character_direction.x > 0:
 		walk_animation = a
@@ -25,9 +22,6 @@ func player_walk(a, b, c, d):
 		walk_animation = c
 	elif character_direction.y < 0:
 		walk_animation = d
-
-
-
 
 func player_stats() -> void:
 	if player_chosen == 1:
