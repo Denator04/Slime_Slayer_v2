@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Slime_Slayer_v2"
-run/main_scene="res://plansza.tscn"
+run/main_scene="uid://cqsx4u400pdlg"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -24,8 +24,9 @@ project/assembly_name="Slime_Slayer_v2"
 folder_colors={
 "res://Assets/": "orange",
 "res://Photos/": "red",
+"res://Sceny/": "teal",
 "res://Sound_Effects/": "yellow",
-"res://soundtrack/": "green"
+"res://Soundtrack/": "green"
 }
 
 [input]

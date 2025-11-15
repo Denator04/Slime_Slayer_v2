@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://di6mfm3mx8ey5"]
+
+[ext_resource type="Script" uid="uid://cc3soto1nv036" path="res://options.gd" id="1_0g7m0"]
+[ext_resource type="Texture2D" uid="uid://c1edcn34a600u" path="res://Photos/main_menu_tło.png" id="2_r65xf"]
+
+[node name="Options" type="Node2D"]
+script = ExtResource("1_0g7m0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575.25, 324)
+scale = Vector2(0.75097656, 0.6328125)
+texture = ExtResource("2_r65xf")
+
+[node name="Button_Manager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Back" type="Button" parent="Button_Manager"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 330.0
+offset_right = 235.0
+offset_bottom = 376.0
+text = "BACK"
+
+[node name="Volume" type="HSlider" parent="Button_Manager"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 383.0
+offset_bottom = 56.0
+
+[connection signal="pressed" from="Button_Manager/Back" to="." method="_on_back_pressed"]
