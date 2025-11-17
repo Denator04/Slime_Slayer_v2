@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bwg88u7na2yyv"
-path="res://.godot/imported/super muza.mp3-d454e7e407a1bfcf9546536d9276fb3b.mp3str"
+path="res://.godot/imported/super muza.mp3-9bb4cc8952afe87808af6841476b3ddd.mp3str"
 
 [deps]
 
-source_file="res://Soundtrack/super muza.mp3"
-dest_files=["res://.godot/imported/super muza.mp3-d454e7e407a1bfcf9546536d9276fb3b.mp3str"]
+source_file="res://soundtrack/super muza.mp3"
+dest_files=["res://.godot/imported/super muza.mp3-9bb4cc8952afe87808af6841476b3ddd.mp3str"]
 
 [params]
 
