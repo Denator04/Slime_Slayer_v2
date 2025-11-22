@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
-@onready var sprite = $spriteOffset/AnimatedSprite2D
+@onready var sprite = $spriteOffset/visualOffset/AnimatedSprite2D
 @onready var sprite_offset = $spriteOffset 
+@onready var animation = $spriteOffset/AnimationPlayer
 
 @export var movement_speed: float = 500
 @export var run_multiplier: float = 2
@@ -65,15 +66,15 @@ func player_stats() -> void:
 		
 #	**************		ATTACK function		***************
 #	**************							***************
-func attack():
+func attack() -> void:
+	if is_attacking:
+		return  # prevent double attack
+
 	is_attacking = true
-	sprite_offset.position = moveOnAttack
-	sprite.play(attack_an)
-	
-	await sprite.animation_finished
+	animation.play("attack_side")
+	await animation.animation_finished
 	is_attacking = false
-	#sprite_offset.position = Vector2.ZERO
-	is_attacking = false
+
 		
 func _ready():
 	sprite.z_index = 10 
@@ -121,8 +122,9 @@ func _physics_process(delta):
 			sprite.play(idle_an)
 			
 	#	*****	Here is attack handled		*****
-	if Input.is_action_just_pressed("ui_c"):
+	if Input.is_action_just_pressed("ui_c") and !is_attacking:
 		attack()
+		#sprite_offset.position.x +=200;
 
 	if Input.is_action_just_pressed("ui_space") and not is_flipping:
 		start_flip()
