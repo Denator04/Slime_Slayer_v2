@@ -77,12 +77,12 @@ func attack() -> void:
 
 		
 func _ready():
-	sprite.z_index = 10 
 	player_stats()
-	
+	z_index = 0
 
 func _physics_process(delta):
-
+	z_index = int(global_position.y)
+	sprite.z_index = int(global_position.y)
 	direction_depend()
 	
 	if is_attacking:
@@ -92,8 +92,6 @@ func _physics_process(delta):
 		move_and_slide()
 		return
 	
-	
-
 	character_direction.x = Input.get_axis("ui_left", "ui_right")
 	character_direction.y = Input.get_axis("ui_up", "ui_down")
 
