@@ -78,7 +78,6 @@ func attack() -> void:
 		
 func _ready():
 	player_stats()
-	z_index = 0
 
 func _physics_process(delta):
 	z_index = int(global_position.y)
