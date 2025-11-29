@@ -9,88 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://c73ay77lapr51" path="res://Assets/grass.png" id="7_xnf3k"]
 [ext_resource type="Texture2D" uid="uid://baa6s7pqc6uur" path="res://Assets/bigger_objects.png" id="9_yifq5"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_34uqp"]
-atlas = ExtResource("3_of0av")
-region = Rect2(0, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7grmp"]
-atlas = ExtResource("3_of0av")
-region = Rect2(24, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mgq1s"]
-atlas = ExtResource("3_of0av")
-region = Rect2(48, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ymmmg"]
-atlas = ExtResource("3_of0av")
-region = Rect2(72, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rhw46"]
-atlas = ExtResource("3_of0av")
-region = Rect2(0, 24, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xs60v"]
-atlas = ExtResource("3_of0av")
-region = Rect2(24, 24, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v62l0"]
-atlas = ExtResource("3_of0av")
-region = Rect2(48, 24, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_glgfy"]
-atlas = ExtResource("3_of0av")
-region = Rect2(72, 24, 24, 24)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_331h7"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_34uqp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7grmp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mgq1s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ymmmg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rhw46")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xs60v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v62l0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_glgfy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mgq1s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7grmp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_34uqp")
-}],
-"loop": true,
-"name": &"slime_idle",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yifq5"]
-size = Vector2(62.75, 37)
-
 [sub_resource type="Animation" id="Animation_6xxrs"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("spriteOffset/visualOffset/AnimatedSprite2D:frame")
+tracks/0/path = NodePath("../PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -118,7 +42,7 @@ length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("spriteOffset/visualOffset/AnimatedSprite2D:frame")
+tracks/0/path = NodePath("../PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -130,7 +54,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("spriteOffset/visualOffset/AnimatedSprite2D:frame")
+tracks/1/path = NodePath("../PlayerSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -142,7 +66,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("spriteOffset/visualOffset/AnimatedSprite2D:frame")
+tracks/2/path = NodePath("../PlayerSprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -169,6 +93,9 @@ _data = {
 &"RESET": SubResource("Animation_6xxrs"),
 &"attack_side": SubResource("Animation_xnf3k")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkkir"]
+size = Vector2(36, 39.25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0gho1"]
 atlas = ExtResource("3_kkyxt")
@@ -495,59 +422,149 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkkir"]
-size = Vector2(36, 39.25)
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6xxrs"]
 texture = ExtResource("9_yifq5")
 0:0/size_in_atlas = Vector2i(4, 4)
 0:0/0 = 0
-0:0/0/texture_origin = Vector2i(0, 20)
+0:0/0/texture_origin = Vector2i(60, 20)
+0:0/0/physics_layer_0/linear_velocity = Vector2(10, 0)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-18.799215, 4.1422005, 8, 3.50494, 19.755104, 4.4608307, 28.676765, 5.098091, 26.127724, 10.514816, 15.931538, 11.789337, 2.2304153, 12.107967, -13.382492, 12.107967, -21.666893, 9.877552, -22.622786, 4.4608307)
 0:4/size_in_atlas = Vector2i(4, 4)
 0:4/0 = 0
-0:4/0/texture_origin = Vector2i(0, 20)
+0:4/0/texture_origin = Vector2i(5, 50)
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-18.799215, 4.1422005, 8, 3.50494, 19.755104, 4.4608307, 28.676765, 5.098091, 26.127724, 10.514816, 15.931538, 11.789337, 2.2304153, 12.107967, -13.382492, 12.107967, -21.666893, 9.877552, -22.622786, 4.4608307)
 0:8/size_in_atlas = Vector2i(4, 4)
 0:8/0 = 0
 0:8/0/texture_origin = Vector2i(0, 20)
+0:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24.534569, 4.4608307, 25.490456, 5.4167213, 28.676765, 12.745232, -20.39237, 11.470707)
 0:12/size_in_atlas = Vector2i(4, 4)
 0:12/0 = 0
 0:12/0/texture_origin = Vector2i(0, 20)
+0:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24.534569, 4.4608307, 25.490456, 5.4167213, 28.676765, 12.745232, -20.39237, 11.470707)
 4:8/size_in_atlas = Vector2i(4, 8)
 4:8/0 = 0
 4:8/0/texture_origin = Vector2i(0, 52)
+4:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-18.799215, 4.1422005, 8, 3.50494, 19.755104, 4.4608307, 21.666893, 10.196186, 15.931538, 11.789337, 2.2304153, 12.107967, -13.382492, 12.107967, -21.666893, 9.877552)
 4:0/size_in_atlas = Vector2i(4, 8)
 4:0/0 = 0
-4:0/0/texture_origin = Vector2i(0, 52)
+4:0/0/texture_origin = Vector2i(60, 50)
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-18.799215, 4.1422005, 8, 3.50494, 19.755104, 4.4608307, 21.666893, 10.196186, 15.931538, 11.789337, 2.2304153, 12.107967, -13.382492, 12.107967, -21.666893, 9.877552)
 8:0/size_in_atlas = Vector2i(4, 8)
 8:0/0 = 0
 8:0/0/texture_origin = Vector2i(0, 52)
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-18.799215, 4.1422005, 8, 3.50494, 19.755104, 4.4608307, 21.666893, 10.196186, 15.931538, 11.789337, 2.2304153, 12.107967, -13.382492, 12.107967, -21.666893, 9.877552)
 8:8/size_in_atlas = Vector2i(4, 8)
 8:8/0 = 0
 8:8/0/texture_origin = Vector2i(0, 52)
+8:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-18.799215, 4.1422005, 8, 3.50494, 19.755104, 4.4608307, 21.666893, 10.196186, 15.931538, 11.789337, 2.2304153, 12.107967, -13.382492, 12.107967, -21.666893, 9.877552)
 12:8/size_in_atlas = Vector2i(6, 8)
 12:8/0 = 0
 12:8/0/texture_origin = Vector2i(0, 52)
+12:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-18.799215, 4.1422005, 8, 3.50494, 19.755104, 4.4608307, 28.676765, 5.098091, 26.127724, 10.514816, 15.931538, 11.789337, 2.2304153, 12.107967, -13.382492, 12.107967, -21.666893, 9.877552, -22.622786, 4.4608307)
 12:0/size_in_atlas = Vector2i(6, 8)
 12:0/0 = 0
-12:0/0/texture_origin = Vector2i(0, 52)
+12:0/0/texture_origin = Vector2i(60, 50)
+12:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-18.799215, 4.1422005, 8, 3.50494, 19.755104, 4.4608307, 28.676765, 5.098091, 26.127724, 10.514816, 15.931538, 11.789337, 2.2304153, 12.107967, -13.382492, 12.107967, -21.666893, 9.877552, -22.622786, 4.4608307)
 18:0/size_in_atlas = Vector2i(6, 8)
 18:0/0 = 0
 18:0/0/texture_origin = Vector2i(0, 52)
+18:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-18.799215, 4.1422005, 8, 3.50494, 19.755104, 4.4608307, 28.676765, 5.098091, 26.127724, 10.514816, 15.931538, 11.789337, 2.2304153, 12.107967, -13.382492, 12.107967, -21.666893, 9.877552, -22.622786, 4.4608307)
 18:8/size_in_atlas = Vector2i(6, 8)
 18:8/0 = 0
 18:8/0/texture_origin = Vector2i(0, 52)
+18:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-18.799215, 4.1422005, 8, 3.50494, 19.755104, 4.4608307, 28.676765, 5.098091, 26.127724, 10.514816, 15.931538, 11.789337, 2.2304153, 12.107967, -13.382492, 12.107967, -21.666893, 9.877552, -22.622786, 4.4608307)
 24:8/size_in_atlas = Vector2i(4, 4)
 24:8/0 = 0
-24:8/0/texture_origin = Vector2i(0, 20)
+24:8/0/texture_origin = Vector2i(60, 20)
+24:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20.073738, 6.0539856, 8, 6.691246, 17.206059, 6.372616, 20.392368, 9.877552, -21.666893, 9.877552)
 24:4/size_in_atlas = Vector2i(4, 4)
 24:4/0 = 0
-24:4/0/texture_origin = Vector2i(0, 20)
+24:4/0/texture_origin = Vector2i(60, 20)
+24:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-21.02963, -3.186308, 14.975643, -1.9117851, 20.710999, 2.2304153, 16.250168, 7.3285065, -18.799215, 6.372616)
 24:0/size_in_atlas = Vector2i(4, 4)
 24:0/0 = 0
-24:0/0/texture_origin = Vector2i(0, 20)
+24:0/0/texture_origin = Vector2i(60, 20)
+24:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24.534569, 4.4608307, 25.490456, 5.4167213, 28.676765, 12.745232, -20.39237, 11.470707)
 
 [sub_resource type="TileSet" id="TileSet_gkkir"]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_6xxrs")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34uqp"]
+atlas = ExtResource("3_of0av")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7grmp"]
+atlas = ExtResource("3_of0av")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgq1s"]
+atlas = ExtResource("3_of0av")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymmmg"]
+atlas = ExtResource("3_of0av")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhw46"]
+atlas = ExtResource("3_of0av")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xs60v"]
+atlas = ExtResource("3_of0av")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v62l0"]
+atlas = ExtResource("3_of0av")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glgfy"]
+atlas = ExtResource("3_of0av")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_331h7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34uqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7grmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgq1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymmmg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhw46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xs60v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v62l0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glgfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgq1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7grmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34uqp")
+}],
+"loop": true,
+"name": &"slime_idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yifq5"]
+size = Vector2(62.75, 37)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0gho1"]
 texture = ExtResource("7_xnf3k")
@@ -647,6 +664,55 @@ sources/0 = SubResource("TileSetAtlasSource_i38sm")
 [node name="Plansza" type="Node2D"]
 y_sort_enabled = true
 
+[node name="Player" type="CharacterBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(64, 96)
+disable_mode = 2
+motion_mode = 1
+script = ExtResource("1_erxrr")
+movement_speed = 130.0
+
+[node name="spriteOffset" type="Node2D" parent="Player"]
+position = Vector2(-3, -4)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/spriteOffset"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_6xxrs")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Player/spriteOffset"]
+root_node = NodePath("../..")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="visualOffset" type="Node2D" parent="Player/spriteOffset"]
+
+[node name="Player_Hitbox" type="CollisionShape2D" parent="Player"]
+visible = false
+position = Vector2(59, -5)
+shape = SubResource("RectangleShape2D_gkkir")
+debug_color = Color(0, 0.56335086, 0.87526304, 0.41960785)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(74, 77)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(121, 82)
+scale = Vector2(1.5195311, 1.5195311)
+sprite_frames = SubResource("SpriteFrames_hg2gi")
+animation = &"attack_side_B"
+autoplay = "rycerz_idle"
+offset = Vector2(0, -5)
+
+[node name="Przeszkody" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAWAAkAAAAAAAAAAAA5AAYAAAAAAAAAAAAQABYAAAAAAAAAAAA0ABwAAAAAAAAAAAA7ABIAAAAAAAAAAAAbABsAAAAAAAAAAAAlABsAAAAMAAAAAAAZABQAAAAMAAAAAAAnAAgAAAAMAAAAAAAzABMAAAAMAAAAAABAABwAAAAMAAAAAAAIABsAAAAYAAAAAAAPABEAAAAEAAAAAAAeAAgAAAAEAAAAAAAsABUAAAAEAAAAAABBAAkAAAAEAAAAAAA5ABcAAAAYAAgAAAAuAAoAAAAYAAgAAAATABoAAAAYAAgAAAAbAAsAAAAYAAgAAAARAAQAAAAYAAgAAAAvAB0AAAAYAAAAAAAeABQAAAAYAAAAAAA+AA4AAAAYAAAAAAAIAAUAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_gkkir")
+y_sort_origin = -4
+
 [node name="Slime" type="CharacterBody2D" parent="."]
 script = ExtResource("3_w2waa")
 
@@ -663,60 +729,8 @@ frame_progress = 0.240079
 position = Vector2(561.625, 246.5)
 shape = SubResource("RectangleShape2D_yifq5")
 
-[node name="Player" type="CharacterBody2D" parent="."]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(64, 96)
-disable_mode = 2
-motion_mode = 1
-script = ExtResource("1_erxrr")
-movement_speed = 130.0
-
-[node name="spriteOffset" type="Node2D" parent="Player"]
-y_sort_enabled = true
-position = Vector2(-3, -4)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/spriteOffset"]
-root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_6xxrs")
-}
-
-[node name="AnimationTree" type="AnimationTree" parent="Player/spriteOffset"]
-root_node = NodePath("../..")
-anim_player = NodePath("../AnimationPlayer")
-
-[node name="visualOffset" type="Node2D" parent="Player/spriteOffset"]
-y_sort_enabled = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/spriteOffset/visualOffset"]
-position = Vector2(43, -10)
-scale = Vector2(1.5195311, 1.5195311)
-sprite_frames = SubResource("SpriteFrames_hg2gi")
-animation = &"attack_side_B"
-autoplay = "rycerz_idle"
-offset = Vector2(6, 0)
-
-[node name="Player_Hitbox" type="CollisionShape2D" parent="Player"]
-visible = false
-position = Vector2(59, -5)
-shape = SubResource("RectangleShape2D_gkkir")
-debug_color = Color(0, 0.56335086, 0.87526304, 0.41960785)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(74, 77)
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-
-[node name="Przeszkody" type="TileMapLayer" parent="."]
-z_index = 1
-y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAIAAUAAAAAAAAAAAAWAAkAAAAAAAAAAAA5AAYAAAAAAAAAAAAQABYAAAAAAAAAAAA0ABwAAAAAAAAAAAA7ABIAAAAAAAAAAAAbABsAAAAAAAAAAAAlABsAAAAMAAAAAAAZABQAAAAMAAAAAAAnAAgAAAAMAAAAAAAzABMAAAAMAAAAAABAABwAAAAMAAAAAAAIABsAAAAYAAAAAAAPABEAAAAEAAAAAAAeAAgAAAAEAAAAAAAsABUAAAAEAAAAAABBAAkAAAAEAAAAAAA5ABcAAAAYAAgAAAAuAAoAAAAYAAgAAAATABoAAAAYAAgAAAAbAAsAAAAYAAgAAAARAAQAAAAYAAgAAAAvAB0AAAAYAAAAAAAeABQAAAAYAAAAAAA+AA4AAAAYAAAAAAA=")
-tile_set = SubResource("TileSet_gkkir")
-y_sort_origin = -4
-
 [node name="World" type="Node2D" parent="."]
-visible = false
+y_sort_enabled = true
 
 [node name="Ground" type="TileMapLayer" parent="World"]
 z_index = -1
