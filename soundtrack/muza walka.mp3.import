@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://3xuqrqleq24n"
-path="res://.godot/imported/muza walka.mp3-1da03f42472b665aeaba11934f4d6719.mp3str"
+path="res://.godot/imported/muza walka.mp3-60e8a82895e8e1ac16ec80d8a5d73909.mp3str"
 
 [deps]
 
-source_file="res://soundtrack/muza walka.mp3"
-dest_files=["res://.godot/imported/muza walka.mp3-1da03f42472b665aeaba11934f4d6719.mp3str"]
+source_file="res://Soundtrack/muza walka.mp3"
+dest_files=["res://.godot/imported/muza walka.mp3-60e8a82895e8e1ac16ec80d8a5d73909.mp3str"]
 
 [params]
 
