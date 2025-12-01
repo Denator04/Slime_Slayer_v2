@@ -26,7 +26,8 @@ folder_colors={
 "res://Photos/": "red",
 "res://Sceny/": "teal",
 "res://Sound_Effects/": "yellow",
-"res://Soundtrack/": "green"
+"res://Soundtrack/": "green",
+"res://sqlite/": "purple"
 }
 
 [input]
