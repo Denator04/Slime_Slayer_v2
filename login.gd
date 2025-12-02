@@ -46,7 +46,7 @@ func _on_login_pressed():
 	var results = db.select_rows("users", where, ["id", "username"])
 	if results.size() > 0:
 		print("Zalogowano jako: %s" % results[0]["username"])
-		#przejscie do innej sceny
+		get_tree().change_scene_to_file("res://Sceny/main_menu.tscn")
 	else:
 		print("Niepoprawne dane logowania.")
 
