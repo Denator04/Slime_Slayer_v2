@@ -11,3 +11,7 @@ func _on_options_pressed() -> void:
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_login_pressed() -> void:
+	get_tree().change_scene_to_file("res://Sceny/login_menu.tscn")

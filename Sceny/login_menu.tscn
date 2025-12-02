@@ -1,0 +1,143 @@
+[gd_scene load_steps=3 format=3 uid="uid://1c8kvdqdounf"]
+
+[ext_resource type="Texture2D" uid="uid://c1edcn34a600u" path="res://Photos/main_menu_tło.png" id="1_aj8sl"]
+[ext_resource type="Script" uid="uid://bcu6jkhod3ju6" path="res://login.gd" id="1_yahja"]
+
+[node name="Login_Menu" type="Node2D"]
+script = ExtResource("1_yahja")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575.25, 324)
+scale = Vector2(0.75097656, 0.6328125)
+texture = ExtResource("1_aj8sl")
+
+[node name="Button_Manager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Cancel_Button" type="Button" parent="Button_Manager"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 449.0
+offset_right = 283.0
+offset_bottom = 519.0
+text = "CANCEL"
+
+[node name="Login_Menu" type="Panel" parent="Button_Manager"]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 120.0
+offset_right = 665.0
+offset_bottom = 355.0
+
+[node name="Username_Label" type="RichTextLabel" parent="Button_Manager/Login_Menu"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 58.0
+offset_right = 115.0
+offset_bottom = 88.0
+text = "Username"
+
+[node name="Password_Label" type="RichTextLabel" parent="Button_Manager/Login_Menu"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 97.0
+offset_right = 109.0
+offset_bottom = 123.0
+text = "Password"
+
+[node name="Username" type="TextEdit" parent="Button_Manager/Login_Menu"]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 59.0
+offset_right = 276.0
+offset_bottom = 93.0
+
+[node name="Password" type="TextEdit" parent="Button_Manager/Login_Menu"]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 93.0
+offset_right = 279.0
+offset_bottom = 127.0
+
+[node name="Login_Button" type="Button" parent="Button_Manager/Login_Menu"]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 152.0
+offset_right = 271.0
+offset_bottom = 206.0
+text = "LOGIN"
+
+[node name="Register_Button" type="Button" parent="Button_Manager/Login_Menu"]
+layout_mode = 0
+offset_left = 293.0
+offset_top = 11.0
+offset_right = 431.0
+offset_bottom = 51.0
+text = "Create New User"
+
+[node name="Create_New_User_Menu" type="Panel" parent="Button_Manager/Login_Menu"]
+layout_mode = 0
+offset_left = 493.0
+offset_top = 4.0
+offset_right = 851.0
+offset_bottom = 234.0
+
+[node name="Username_Label" type="RichTextLabel" parent="Button_Manager/Login_Menu/Create_New_User_Menu"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 58.0
+offset_right = 115.0
+offset_bottom = 88.0
+text = "Username"
+
+[node name="Password_Label" type="RichTextLabel" parent="Button_Manager/Login_Menu/Create_New_User_Menu"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 97.0
+offset_right = 109.0
+offset_bottom = 123.0
+text = "Password"
+
+[node name="Username" type="TextEdit" parent="Button_Manager/Login_Menu/Create_New_User_Menu"]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 59.0
+offset_right = 276.0
+offset_bottom = 93.0
+
+[node name="Password" type="TextEdit" parent="Button_Manager/Login_Menu/Create_New_User_Menu"]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 93.0
+offset_right = 279.0
+offset_bottom = 127.0
+
+[node name="Craete_User_Button" type="Button" parent="Button_Manager/Login_Menu/Create_New_User_Menu"]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 152.0
+offset_right = 271.0
+offset_bottom = 206.0
+text = "CREATE"
+
+[node name="Upper_Text" type="RichTextLabel" parent="Button_Manager/Login_Menu/Create_New_User_Menu"]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 10.0
+offset_right = 244.0
+offset_bottom = 50.0
+text = "Create New User"
+
+[node name="Close_Window_Button" type="Button" parent="Button_Manager/Login_Menu/Create_New_User_Menu"]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 12.0
+offset_right = 335.0
+offset_bottom = 37.0
+text = "X"
+
+[connection signal="pressed" from="Button_Manager/Cancel_Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button_Manager/Cancel_Button" to="." method="_on_cancel_button_pressed"]

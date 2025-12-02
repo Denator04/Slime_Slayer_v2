@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="Slime_Slayer_v2"
-run/main_scene="uid://b0ct5yjtlfnyp"
+run/main_scene="uid://cqsx4u400pdlg"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]
 
 project/assembly_name="Slime_Slayer_v2"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
 
 [file_customization]
 

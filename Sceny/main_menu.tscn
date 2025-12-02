@@ -41,6 +41,15 @@ offset_right = 255.0
 offset_bottom = 336.0
 text = "EXIT"
 
+[node name="Login" type="Button" parent="Button_Manager"]
+layout_mode = 0
+offset_left = 928.0
+offset_top = 24.0
+offset_right = 1106.0
+offset_bottom = 89.0
+text = "LOGIN"
+
 [connection signal="pressed" from="Button_Manager/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Button_Manager/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Button_Manager/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Button_Manager/Login" to="." method="_on_login_pressed"]
