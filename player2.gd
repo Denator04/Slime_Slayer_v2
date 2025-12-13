@@ -10,6 +10,8 @@ var last_direction = Vector2.ZERO
 
 func _ready():
 	animation_tree.active = true
+	add_to_group("player")
+	get_parent().get_node("RoomManager").register_player(self)
 	
 
 func _process(delta):

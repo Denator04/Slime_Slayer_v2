@@ -2,7 +2,7 @@ extends Node2D
 
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://Sceny/plansza.tscn")
+	get_tree().change_scene_to_file("res://Sceny/level 1/level_1.tscn")
 
 
 func _on_options_pressed() -> void:
