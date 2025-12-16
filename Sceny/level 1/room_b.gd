@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var is_start_room := true
+@export var is_start_room := false
 
 func _ready() -> void:
 	if is_start_room:
