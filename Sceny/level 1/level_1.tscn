@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://b0ct5yjtlfnyp"]
+[gd_scene load_steps=16 format=4 uid="uid://b0ct5yjtlfnyp"]
 
 [ext_resource type="PackedScene" uid="uid://ctsdtdu4fowo2" path="res://Sceny/level 1/player.tscn" id="1_lt3un"]
 [ext_resource type="Texture2D" uid="uid://baa6s7pqc6uur" path="res://Assets/bigger_objects.png" id="5_ri721"]
@@ -7,9 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dbvgcvof0m27t" path="res://Assets/floor_forest.png" id="8_ri721"]
 [ext_resource type="Script" uid="uid://dylj5uqmhwfa1" path="res://Sceny/level 1/drzwi_do_b.gd" id="10_4a0vl"]
 
-[sub_resource type="GDScript" id="GDScript_h1ema"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ri721"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lt3un"]
 texture = ExtResource("5_ri721")
 0:0/size_in_atlas = Vector2i(4, 4)
 0:0/0 = 0
@@ -71,7 +69,7 @@ texture = ExtResource("5_ri721")
 24:0/0/texture_origin = Vector2i(0, 20)
 24:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25.171831, 0, 25.17183, 0.63726044, 15.294273, 10.8334465, -13.547375, 11.8539505, -16.25017, 12.107967, -19.117846, 7.6471367)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4a0vl"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6k24t"]
 texture = ExtResource("6_4a0vl")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/0 = 0
@@ -124,16 +122,16 @@ texture = ExtResource("6_4a0vl")
 
 [sub_resource type="TileSet" id="TileSet_khm1q"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_ri721")
-sources/3 = SubResource("TileSetAtlasSource_4a0vl")
+sources/0 = SubResource("TileSetAtlasSource_lt3un")
+sources/3 = SubResource("TileSetAtlasSource_6k24t")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jaxcd"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h1ema"]
 texture = ExtResource("7_h1ema")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g80px"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ri721"]
 texture = ExtResource("8_ri721")
 0:0/0 = 0
 0:1/0 = 0
@@ -175,10 +173,10 @@ texture = ExtResource("8_ri721")
 0:4/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_ey6xc"]
-sources/0 = SubResource("TileSetAtlasSource_jaxcd")
-sources/1 = SubResource("TileSetAtlasSource_g80px")
+sources/0 = SubResource("TileSetAtlasSource_h1ema")
+sources/1 = SubResource("TileSetAtlasSource_ri721")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jdclo"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4a0vl"]
 texture = ExtResource("8_ri721")
 0:0/0 = 0
 1:0/0 = 0
@@ -220,7 +218,7 @@ texture = ExtResource("8_ri721")
 3:7/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_eslk5"]
-sources/0 = SubResource("TileSetAtlasSource_jdclo")
+sources/0 = SubResource("TileSetAtlasSource_4a0vl")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khm1q"]
 size = Vector2(26, 216)
@@ -229,9 +227,6 @@ size = Vector2(26, 216)
 
 [node name="Player" parent="." instance=ExtResource("1_lt3un")]
 position = Vector2(73, 170)
-
-[node name="RoomManager" type="Node" parent="."]
-script = SubResource("GDScript_h1ema")
 
 [node name="Przeszkody" type="TileMapLayer" parent="."]
 y_sort_enabled = true
