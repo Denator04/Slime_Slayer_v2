@@ -226,7 +226,7 @@ size = Vector2(26, 216)
 [node name="1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_lt3un")]
-position = Vector2(73, 170)
+position = Vector2(197, 212)
 
 [node name="Przeszkody" type="TileMapLayer" parent="."]
 y_sort_enabled = true
@@ -253,3 +253,9 @@ script = ExtResource("10_4a0vl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggery/DrzwiDoB"]
 position = Vector2(1137, 414)
 shape = SubResource("RectangleShape2D_khm1q")
+
+[node name="WejscieZB" type="Marker2D" parent="."]
+position = Vector2(1075, 399)
+
+[connection signal="body_entered" from="Triggery/DrzwiDoB" to="Triggery/DrzwiDoB" method="_on_body_entered"]
+[connection signal="body_exited" from="Triggery/DrzwiDoB" to="Triggery/DrzwiDoB" method="_on_body_exited"]
