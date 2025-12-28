@@ -1,11 +1,11 @@
-[gd_scene load_steps=16 format=4 uid="uid://b0ct5yjtlfnyp"]
+[gd_scene load_steps=15 format=4 uid="uid://b0ct5yjtlfnyp"]
 
-[ext_resource type="PackedScene" uid="uid://ctsdtdu4fowo2" path="res://Sceny/level 1/player.tscn" id="1_lt3un"]
+[ext_resource type="PackedScene" uid="uid://ctsdtdu4fowo2" path="res://Sceny/player.tscn" id="1_lt3un"]
 [ext_resource type="Texture2D" uid="uid://baa6s7pqc6uur" path="res://Assets/bigger_objects.png" id="5_ri721"]
 [ext_resource type="Texture2D" uid="uid://cs7b0uuye6npe" path="res://Assets/fences_64.png" id="6_4a0vl"]
+[ext_resource type="PackedScene" uid="uid://d0gvltan8hac5" path="res://Sceny/door.tscn" id="6_lt3un"]
 [ext_resource type="Texture2D" uid="uid://c73ay77lapr51" path="res://Assets/grass.png" id="7_h1ema"]
 [ext_resource type="Texture2D" uid="uid://dbvgcvof0m27t" path="res://Assets/floor_forest.png" id="8_ri721"]
-[ext_resource type="Script" uid="uid://dylj5uqmhwfa1" path="res://Sceny/level 1/drzwi_do_b.gd" id="10_4a0vl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lt3un"]
 texture = ExtResource("5_ri721")
@@ -220,9 +220,6 @@ texture = ExtResource("8_ri721")
 [sub_resource type="TileSet" id="TileSet_eslk5"]
 sources/0 = SubResource("TileSetAtlasSource_4a0vl")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_khm1q"]
-size = Vector2(26, 216)
-
 [node name="1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_lt3un")]
@@ -245,17 +242,18 @@ tile_set = SubResource("TileSet_ey6xc")
 z_index = 1
 tile_set = SubResource("TileSet_eslk5")
 
-[node name="Triggery" type="Node2D" parent="."]
+[node name="Doors" type="Node" parent="."]
 
-[node name="DrzwiDoB" type="Area2D" parent="Triggery"]
-script = ExtResource("10_4a0vl")
+[node name="DoorToB" parent="Doors" instance=ExtResource("6_lt3un")]
+position = Vector2(1135, 323)
+destination_level_tag = "RoomB"
+destination_door_tag = "W"
+spawn_direction = "left"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggery/DrzwiDoB"]
-position = Vector2(1137, 414)
-shape = SubResource("RectangleShape2D_khm1q")
+[node name="CollisionShape2D" parent="Doors/DoorToB" index="0"]
+position = Vector2(0, 92)
 
-[node name="WejscieZB" type="Marker2D" parent="."]
-position = Vector2(1075, 399)
+[node name="Spawn" parent="Doors/DoorToB" index="1"]
+position = Vector2(-44, 75)
 
-[connection signal="body_entered" from="Triggery/DrzwiDoB" to="Triggery/DrzwiDoB" method="_on_body_entered"]
-[connection signal="body_exited" from="Triggery/DrzwiDoB" to="Triggery/DrzwiDoB" method="_on_body_exited"]
+[editable path="Doors/DoorToB"]
