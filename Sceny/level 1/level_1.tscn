@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=4 uid="uid://b0ct5yjtlfnyp"]
+[gd_scene load_steps=16 format=4 uid="uid://b0ct5yjtlfnyp"]
 
+[ext_resource type="Script" uid="uid://6m1v45xeeliy" path="res://Sceny/level 1/level_1.gd" id="1_6k24t"]
 [ext_resource type="PackedScene" uid="uid://ctsdtdu4fowo2" path="res://Sceny/player.tscn" id="1_lt3un"]
 [ext_resource type="Texture2D" uid="uid://baa6s7pqc6uur" path="res://Assets/bigger_objects.png" id="5_ri721"]
 [ext_resource type="Texture2D" uid="uid://cs7b0uuye6npe" path="res://Assets/fences_64.png" id="6_4a0vl"]
@@ -221,6 +222,7 @@ texture = ExtResource("8_ri721")
 sources/0 = SubResource("TileSetAtlasSource_4a0vl")
 
 [node name="1" type="Node2D"]
+script = ExtResource("1_6k24t")
 
 [node name="Player" parent="." instance=ExtResource("1_lt3un")]
 position = Vector2(197, 212)
@@ -244,16 +246,14 @@ tile_set = SubResource("TileSet_eslk5")
 
 [node name="Doors" type="Node" parent="."]
 
-[node name="DoorToB" parent="Doors" instance=ExtResource("6_lt3un")]
-position = Vector2(1135, 323)
-destination_level_tag = "RoomB"
-destination_door_tag = "W"
-spawn_direction = "left"
+[node name="Door" parent="Doors" instance=ExtResource("6_lt3un")]
+target_scene = "res://Sceny/level 1/RoomB.tscn"
+target_spawn = "EntranceFromA"
 
-[node name="CollisionShape2D" parent="Doors/DoorToB" index="0"]
-position = Vector2(0, 92)
+[node name="HitBox" parent="Doors/Door" index="0"]
+position = Vector2(1139, 414)
 
-[node name="Spawn" parent="Doors/DoorToB" index="1"]
-position = Vector2(-44, 75)
+[node name="EntranceFromB" type="Marker2D" parent="."]
+position = Vector2(1093, 377)
 
-[editable path="Doors/DoorToB"]
+[editable path="Doors/Door"]

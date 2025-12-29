@@ -1,3 +1,3 @@
 extends Node
 
-var spawn_position = Vector2() 
+var spawn_point_name: String = ""

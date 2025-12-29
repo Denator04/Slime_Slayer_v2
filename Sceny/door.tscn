@@ -2,16 +2,13 @@
 
 [ext_resource type="Script" uid="uid://b4quwc3nq0svc" path="res://door.gd" id="1_dl7ux"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gk1gi"]
-size = Vector2(20, 204)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dl7ux"]
+size = Vector2(28, 218)
 
 [node name="Door" type="Area2D"]
 script = ExtResource("1_dl7ux")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_gk1gi")
-
-[node name="Spawn" type="Marker2D" parent="."]
+[node name="HitBox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dl7ux")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
