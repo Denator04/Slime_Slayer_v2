@@ -247,13 +247,13 @@ tile_set = SubResource("TileSet_eslk5")
 [node name="Doors" type="Node" parent="."]
 
 [node name="Door" parent="Doors" instance=ExtResource("6_lt3un")]
-target_scene = "res://Sceny/level 1/RoomB.tscn"
-target_spawn = "EntranceFromA"
+target_scene = "res://Sceny/level 1/Room2.tscn"
+target_spawn = "EntranceFrom1To2"
 
 [node name="HitBox" parent="Doors/Door" index="0"]
 position = Vector2(1139, 414)
 
-[node name="EntranceFromB" type="Marker2D" parent="."]
+[node name="EntranceFrom2To1" type="Marker2D" parent="."]
 position = Vector2(1093, 377)
 
 [editable path="Doors/Door"]

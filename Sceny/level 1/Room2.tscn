@@ -1,15 +1,15 @@
 [gd_scene load_steps=16 format=4 uid="uid://bahmjy0dc7y4h"]
 
-[ext_resource type="Script" uid="uid://bhgf2jmk5wkv3" path="res://Sceny/level 1/room_b.gd" id="1_0dx3j"]
-[ext_resource type="PackedScene" uid="uid://ctsdtdu4fowo2" path="res://Sceny/player.tscn" id="1_pkdlx"]
-[ext_resource type="Texture2D" uid="uid://baa6s7pqc6uur" path="res://Assets/bigger_objects.png" id="2_0dx3j"]
-[ext_resource type="Texture2D" uid="uid://cs7b0uuye6npe" path="res://Assets/fences_64.png" id="3_nxixj"]
-[ext_resource type="Texture2D" uid="uid://c73ay77lapr51" path="res://Assets/grass.png" id="4_whqiy"]
-[ext_resource type="Texture2D" uid="uid://dbvgcvof0m27t" path="res://Assets/floor_forest.png" id="5_um0gf"]
-[ext_resource type="PackedScene" uid="uid://d0gvltan8hac5" path="res://Sceny/door.tscn" id="6_pkdlx"]
+[ext_resource type="Script" uid="uid://bhgf2jmk5wkv3" path="res://Sceny/level 1/room_b.gd" id="1_2cd5a"]
+[ext_resource type="PackedScene" uid="uid://ctsdtdu4fowo2" path="res://Sceny/player.tscn" id="2_xuty0"]
+[ext_resource type="Texture2D" uid="uid://baa6s7pqc6uur" path="res://Assets/bigger_objects.png" id="3_lxhyv"]
+[ext_resource type="Texture2D" uid="uid://cs7b0uuye6npe" path="res://Assets/fences_64.png" id="4_u5i1c"]
+[ext_resource type="Texture2D" uid="uid://c73ay77lapr51" path="res://Assets/grass.png" id="5_duicm"]
+[ext_resource type="Texture2D" uid="uid://dbvgcvof0m27t" path="res://Assets/floor_forest.png" id="6_gb40l"]
+[ext_resource type="PackedScene" uid="uid://d0gvltan8hac5" path="res://Sceny/door.tscn" id="7_cfvqn"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2ti11"]
-texture = ExtResource("2_0dx3j")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0dx3j"]
+texture = ExtResource("3_lxhyv")
 0:0/size_in_atlas = Vector2i(4, 4)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24.215939, 23.578674, 26.127724, 22.941414, 23.26004, 30.907185, -22.622786, 33.137596)
@@ -70,8 +70,8 @@ texture = ExtResource("2_0dx3j")
 24:0/0/texture_origin = Vector2i(0, 20)
 24:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25.171831, 0, 25.17183, 0.63726044, 15.294273, 10.8334465, -13.547375, 11.8539505, -16.25017, 12.107967, -19.117846, 7.6471367)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dm3kr"]
-texture = ExtResource("3_nxixj")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nxixj"]
+texture = ExtResource("4_u5i1c")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.514816, -13.701122, 11.789337, -13.382492, 11.152077, 15.612907, -8.284401, 15.612907)
@@ -123,17 +123,17 @@ texture = ExtResource("3_nxixj")
 
 [sub_resource type="TileSet" id="TileSet_1306g"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_2ti11")
-sources/3 = SubResource("TileSetAtlasSource_dm3kr")
+sources/0 = SubResource("TileSetAtlasSource_0dx3j")
+sources/3 = SubResource("TileSetAtlasSource_nxixj")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w5vpe"]
-texture = ExtResource("4_whqiy")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_whqiy"]
+texture = ExtResource("5_duicm")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_av7xn"]
-texture = ExtResource("5_um0gf")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_um0gf"]
+texture = ExtResource("6_gb40l")
 0:0/0 = 0
 0:1/0 = 0
 0:2/0 = 0
@@ -174,11 +174,11 @@ texture = ExtResource("5_um0gf")
 0:4/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_cthnu"]
-sources/0 = SubResource("TileSetAtlasSource_w5vpe")
-sources/1 = SubResource("TileSetAtlasSource_av7xn")
+sources/0 = SubResource("TileSetAtlasSource_whqiy")
+sources/1 = SubResource("TileSetAtlasSource_um0gf")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_10h7o"]
-texture = ExtResource("5_um0gf")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eha62"]
+texture = ExtResource("6_gb40l")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -219,12 +219,12 @@ texture = ExtResource("5_um0gf")
 3:7/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_7vckg"]
-sources/0 = SubResource("TileSetAtlasSource_10h7o")
+sources/0 = SubResource("TileSetAtlasSource_eha62")
 
 [node name="2" type="Node2D"]
-script = ExtResource("1_0dx3j")
+script = ExtResource("1_2cd5a")
 
-[node name="Player" parent="." instance=ExtResource("1_pkdlx")]
+[node name="Player" parent="." instance=ExtResource("2_xuty0")]
 position = Vector2(67, 309)
 
 [node name="Przeszkody" type="TileMapLayer" parent="."]
@@ -246,14 +246,25 @@ tile_set = SubResource("TileSet_7vckg")
 
 [node name="Doors" type="Node" parent="."]
 
-[node name="Door" parent="Doors" instance=ExtResource("6_pkdlx")]
+[node name="DoorTo1" parent="Doors" instance=ExtResource("7_cfvqn")]
 target_scene = "res://Sceny/level 1/level_1.tscn"
-target_spawn = "EntranceFromB"
+target_spawn = "EntranceFrom2To1"
 
-[node name="HitBox" parent="Doors/Door" index="0"]
+[node name="HitBox" parent="Doors/DoorTo1" index="0"]
 position = Vector2(-1, 384)
 
-[node name="EntrenceFromA" type="Marker2D" parent="."]
+[node name="DoorTo3" parent="Doors" instance=ExtResource("7_cfvqn")]
+target_scene = "res://Sceny/level 1/Room3.tscn"
+target_spawn = "EntranceFrom2To3"
+
+[node name="HitBox" parent="Doors/DoorTo3" index="0"]
+position = Vector2(1141, 415)
+
+[node name="EntrenceFrom1To2" type="Marker2D" parent="."]
 position = Vector2(45, 383)
 
-[editable path="Doors/Door"]
+[node name="EntranceFrom3To2" type="Marker2D" parent="."]
+position = Vector2(1089, 401)
+
+[editable path="Doors/DoorTo1"]
+[editable path="Doors/DoorTo3"]
