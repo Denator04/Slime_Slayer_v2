@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgsf8k7yn8odk"]
+
+[ext_resource type="Texture2D" uid="uid://c8ansdq34crot" path="res://Assets/npc sprite.png" id="1_k6jsg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tdnvc"]
+radius = 51.009804
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwa04"]
+atlas = ExtResource("1_k6jsg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixyr6"]
+atlas = ExtResource("1_k6jsg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dhm8k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwa04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixyr6")
+}],
+"loop": true,
+"name": &"npc",
+"speed": 1.0
+}]
+
+[node name="NPC" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tdnvc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dhm8k")
+animation = &"npc"
+autoplay = "npc"
