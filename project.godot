@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://Global.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [dotnet]
 
@@ -25,16 +26,18 @@ project/assembly_name="Slime_Slayer_v2"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/godot-sqlite/plugin.cfg")
 
 [file_customization]
 
 folder_colors={
 "res://Assets/": "orange",
+"res://Dialogues/": "purple",
 "res://Photos/": "red",
 "res://Sceny/": "teal",
 "res://Sound_Effects/": "yellow",
-"res://Soundtrack/": "green"
+"res://Soundtrack/": "green",
+"res://addons/": "blue"
 }
 
 [input]
