@@ -40,6 +40,12 @@ folder_colors={
 "res://addons/": "blue"
 }
 
+[global_group]
+
+enemies=""
+enemy_hitboxes=""
+player=""
+
 [input]
 
 ui_left={
