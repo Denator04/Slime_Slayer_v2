@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://fng8vc5awjbh"]
+[gd_scene load_steps=19 format=4 uid="uid://fng8vc5awjbh"]
 
 [ext_resource type="PackedScene" uid="uid://ctsdtdu4fowo2" path="res://Sceny/player.tscn" id="1_0vudn"]
 [ext_resource type="Script" uid="uid://ronarcpdj0mr" path="res://Sceny/level 1/Room3.gd" id="1_6bcnc"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bfg1n384kntkf" path="res://Sceny/npc.gd" id="4_ohiy6"]
 [ext_resource type="Texture2D" uid="uid://dbvgcvof0m27t" path="res://Assets/floor_forest.png" id="5_ohiy6"]
 [ext_resource type="PackedScene" uid="uid://d0gvltan8hac5" path="res://Sceny/door.tscn" id="6_yil3g"]
+[ext_resource type="PackedScene" uid="uid://brdlp7vruhhvq" path="res://enemies/enemy_m_1.tscn" id="10_ohiy6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dxxv4"]
 texture = ExtResource("2_6bcnc")
@@ -287,6 +288,9 @@ position = Vector2(552, 63)
 
 [node name="EntranceFrom4To3" type="Marker2D" parent="."]
 position = Vector2(1089, 372)
+
+[node name="enemy_M1" parent="." instance=ExtResource("10_ohiy6")]
+position = Vector2(232, 364)
 
 [editable path="Player"]
 [editable path="NPC"]

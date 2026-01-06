@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://brdlp7vruhhvq"]
+
+[ext_resource type="Script" uid="uid://1xv15ut6ipt4" path="res://enemies/enemy_m_1.gd" id="1_nb2sn"]
+[ext_resource type="Texture2D" uid="uid://bygvwp704hg77" path="res://Assets/slime_sprite_2.png" id="1_o0uip"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgto1"]
+size = Vector2(18, 11.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5u0l"]
+size = Vector2(18, 11.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nb2sn"]
+atlas = ExtResource("1_o0uip")
+region = Rect2(0, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgto1"]
+atlas = ExtResource("1_o0uip")
+region = Rect2(32, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5u0l"]
+atlas = ExtResource("1_o0uip")
+region = Rect2(64, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj25g"]
+atlas = ExtResource("1_o0uip")
+region = Rect2(96, 16, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_utfuy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nb2sn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgto1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5u0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hj25g")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="enemy_M1" type="CharacterBody2D" groups=["enemies"]]
+script = ExtResource("1_nb2sn")
+
+[node name="hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 4.5)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_qgto1")
+
+[node name="hurtbox" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 4.5)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_j5u0l")
+debug_color = Color(0.98251337, 0, 0.3657151, 0.41960785)
+
+[node name="Mytexture" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 0)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_utfuy")
+animation = &"idle"
+frame_progress = 0.085407175

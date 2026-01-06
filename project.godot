@@ -40,6 +40,10 @@ folder_colors={
 "res://addons/": "blue"
 }
 
+[global_group]
+
+enemies=""
+
 [input]
 
 ui_left={
@@ -98,6 +102,10 @@ interact={
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://Dialogues/dialogue1.dialogue")
 
 [rendering]
 
