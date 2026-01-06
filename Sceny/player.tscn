@@ -1137,13 +1137,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u83dt"]
 size = Vector2(38.86996, 12.41622)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
 disable_mode = 2
 motion_mode = 1
 script = ExtResource("1_kpelt")
 
-[node name="Player_Hitbox" type="CollisionShape2D" parent="."]
+[node name="Player_Hitbox" type="CollisionShape2D" parent="." groups=["player"]]
 position = Vector2(1, 70.5)
 shape = SubResource("RectangleShape2D_6k24t")
 debug_color = Color(0, 0.56335086, 0.87526304, 0.41960785)
@@ -1165,7 +1165,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-active = false
 tree_root = SubResource("AnimationNodeStateMachine_6k24t")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_idle = false

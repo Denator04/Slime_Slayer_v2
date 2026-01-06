@@ -2,10 +2,14 @@ extends CharacterBody2D
 
 class_name Player
 
+var is_dead = false
+var is_hit = false
+
 # 		Statystyki		##########
 var SPEED = 200.0
 var dmg = 5
 var sprint = 1
+var hp = 5
 
 @onready var sprite = $visualOffset/PlayerSprite
 @onready var animation_tree : AnimationTree = $AnimationTree
@@ -78,4 +82,24 @@ func _on_weapon_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):
 		body.take_damage(dmg)
 		
+		
+func take_damage(amount: int) -> void:
+	if is_dead or is_hit == true:
+		return
+	is_hit = true
+	hp -= amount
+	print("MY HP:", hp)
+	await get_tree().create_timer(0.5).timeout
+	is_hit = false
 	
+	if hp <= 0:
+		dying()
+		
+		
+func dying():
+	is_dead = false
+	for n in 5:
+		sprite.visible = false
+		await get_tree().create_timer(0.4).timeout
+		sprite.visible = true
+		await get_tree().create_timer(0.4).timeout

@@ -2,11 +2,13 @@ extends CharacterBody2D
 
 @onready var sprite = $Mytexture
 
-const SPEED = 300.0
-var hp = 10
 var is_dead: bool = false
 var is_hit = false
 
+###	STATYSTYKI	###
+var dmg = 1
+var hp = 10
+const SPEED = 300.0
 
 
 func _physics_process(delta: float) -> void:
@@ -31,4 +33,13 @@ func take_damage(amount: int) -> void:
 	print("Enemy HP:", hp)
 
 	if hp <= 0:
-		dying()  # trigger death/blink effect
+		dying()  
+
+
+func _on_hitbox_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		body.take_damage(dmg)
+
+#func _on_hitbox_area_body_exited(body: Node2D) -> void:
+	#if body.is_in_group("player"):
+		#body.stop_dmg()	
