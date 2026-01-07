@@ -12,6 +12,7 @@ var sprint = 1
 var hp = 5
 
 @onready var sprite = $visualOffset/PlayerSprite
+@onready var anPlayer = $AnimationPlayer
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var weapon_hitbox = $weaponHitbox
 
@@ -89,17 +90,21 @@ func take_damage(amount: int) -> void:
 	is_hit = true
 	hp -= amount
 	print("MY HP:", hp)
-	await get_tree().create_timer(0.5).timeout
-	is_hit = false
 	
+		
 	if hp <= 0:
 		dying()
 		
+	
+	await get_tree().create_timer(0.5).timeout
+	is_hit = false
+
 		
 func dying():
-	is_dead = false
-	for n in 5:
-		sprite.visible = false
-		await get_tree().create_timer(0.4).timeout
-		sprite.visible = true
-		await get_tree().create_timer(0.4).timeout
+	is_dead = true
+	animation_tree.active = false
+	SPEED = 0
+	anPlayer.play("death")
+	await anPlayer.animation_finished
+	sprite.visible = false
+	
