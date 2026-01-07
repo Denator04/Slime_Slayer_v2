@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://Global.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+Dialogue="*res://Sceny/level 1/DialogueUI.tscn"
 
 [dotnet]
 
@@ -45,6 +46,7 @@ folder_colors={
 enemies=""
 enemy_hitboxes=""
 player=""
+Player=""
 
 [input]
 

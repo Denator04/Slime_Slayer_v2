@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://cs7b0uuye6npe" path="res://Assets/fences_64.png" id="3_e571l"]
 [ext_resource type="PackedScene" uid="uid://bgsf8k7yn8odk" path="res://Sceny/npc.tscn" id="3_ea3ia"]
 [ext_resource type="Texture2D" uid="uid://c73ay77lapr51" path="res://Assets/grass.png" id="4_ea3ia"]
-[ext_resource type="Script" uid="uid://bfg1n384kntkf" path="res://Sceny/npc.gd" id="4_ohiy6"]
 [ext_resource type="Texture2D" uid="uid://dbvgcvof0m27t" path="res://Assets/floor_forest.png" id="5_ohiy6"]
 [ext_resource type="PackedScene" uid="uid://d0gvltan8hac5" path="res://Sceny/door.tscn" id="6_yil3g"]
 [ext_resource type="PackedScene" uid="uid://brdlp7vruhhvq" path="res://enemies/enemy_m_1.tscn" id="10_ohiy6"]
+[ext_resource type="PackedScene" uid="uid://yqvuf38d0x2v" path="res://Sceny/level 1/DialogueUI.tscn" id="10_yil3g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dxxv4"]
 texture = ExtResource("2_6bcnc")
@@ -227,24 +227,11 @@ sources/0 = SubResource("TileSetAtlasSource_wpxna")
 [node name="3" type="Node2D"]
 script = ExtResource("1_6bcnc")
 
-[node name="Player" parent="." instance=ExtResource("1_0vudn")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_0vudn")]
 position = Vector2(60, 303)
 
 [node name="Camera2D" parent="Player" index="1"]
 limit_left = -96
-
-[node name="NPC" parent="." instance=ExtResource("3_ea3ia")]
-position = Vector2(710, 273)
-script = ExtResource("4_ohiy6")
-
-[node name="CollisionShape2D" parent="NPC" index="0"]
-position = Vector2(19, -12)
-one_way_collision = true
-one_way_collision_margin = 0.0
-
-[node name="AnimatedSprite2D" parent="NPC" index="1"]
-position = Vector2(20.000008, -17.000008)
-scale = Vector2(1.8437505, 1.8437505)
 
 [node name="Przeszkody" type="TileMapLayer" parent="."]
 y_sort_enabled = true
@@ -292,6 +279,30 @@ position = Vector2(1089, 372)
 [node name="enemy_M1" parent="." instance=ExtResource("10_ohiy6")]
 position = Vector2(232, 364)
 
+[node name="NPC" parent="." instance=ExtResource("3_ea3ia")]
+
+[node name="AnimatedSprite2D" parent="NPC" index="0"]
+position = Vector2(753, 261)
+scale = Vector2(2.25, 2.25)
+frame = 1
+
+[node name="InteractArea" parent="NPC" index="1"]
+position = Vector2(119, 69)
+
+[node name="CollisionShape2D" parent="NPC/InteractArea" index="0"]
+position = Vector2(634, 201)
+
+[node name="DialogueUI" parent="." instance=ExtResource("10_yil3g")]
+
+[node name="Panel" parent="DialogueUI" index="0"]
+anchors_preset = 2
+anchor_right = 0.0
+grow_horizontal = 1
+
+[node name="Portrait" parent="DialogueUI/HBoxContainer/PortraitPanel" index="0"]
+stretch_mode = 6
+
 [editable path="Player"]
-[editable path="NPC"]
 [editable path="Doors/DoorTo10"]
+[editable path="NPC"]
+[editable path="DialogueUI"]
