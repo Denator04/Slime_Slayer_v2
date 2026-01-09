@@ -279,7 +279,7 @@ position = Vector2(1089, 372)
 [node name="enemy_M1" parent="." instance=ExtResource("10_ohiy6")]
 position = Vector2(232, 364)
 
-[node name="NPC" parent="." instance=ExtResource("3_ea3ia")]
+[node name="NPC" parent="." groups=["NPC"] instance=ExtResource("3_ea3ia")]
 
 [node name="AnimatedSprite2D" parent="NPC" index="0"]
 position = Vector2(753, 261)
@@ -294,13 +294,11 @@ position = Vector2(634, 201)
 
 [node name="DialogueUI" parent="." instance=ExtResource("10_yil3g")]
 
-[node name="Panel" parent="DialogueUI" index="0"]
-anchors_preset = 2
-anchor_right = 0.0
-grow_horizontal = 1
-
-[node name="Portrait" parent="DialogueUI/HBoxContainer/PortraitPanel" index="0"]
-stretch_mode = 6
+[node name="DialoguePanel" parent="DialogueUI" index="1"]
+offset_left = -103.0
+offset_top = 309.0
+offset_right = 136.0
+offset_bottom = 469.0
 
 [editable path="Player"]
 [editable path="Doors/DoorTo10"]

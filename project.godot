@@ -47,6 +47,7 @@ enemies=""
 enemy_hitboxes=""
 player=""
 Player=""
+NPC=""
 
 [input]
 

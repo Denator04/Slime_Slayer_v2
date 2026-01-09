@@ -1,6 +1,7 @@
 extends Node2D
 
 var player_in_range := false
+var dialogue_active := false
 
 
 func _ready() -> void:
@@ -11,22 +12,26 @@ func _ready() -> void:
 func _on_body_entered(body) -> void:
 	if body.is_in_group("Player"):
 		player_in_range = true
-		print("PLAYER wszedł w zasięg")
 
 
 func _on_body_exited(body) -> void:
 	if body.is_in_group("Player"):
 		player_in_range = false
-		print("PLAYER wyszedł z zasięgu")
 
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("interact"):
-		print("E wciśnięte, player_in_range =", player_in_range)
+	if dialogue_active:
+		return
 
-		if player_in_range:
-			print("ODPALAM DIALOG")
-			Dialogue.start_dialogue(
-				"res://Dialogues/dialogue1.dialogue",
-                "start"
-			)
+	if Input.is_action_just_pressed("interact") and player_in_range:
+		dialogue_active = true
+
+		Dialogue.start_dialogue(
+			"res://Dialogues/dialogue1.dialogue",
+			"start"
+		)
+
+
+# 👉 wywoływane z Dialogue (autoload) po zakończeniu dialogu
+func dialogue_finished() -> void:
+	dialogue_active = false
