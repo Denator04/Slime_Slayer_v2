@@ -224,6 +224,7 @@ sources/0 = SubResource("TileSetAtlasSource_fun57")
 script = ExtResource("1_pdap4")
 
 [node name="Player" parent="." instance=ExtResource("2_osgx8")]
+position = Vector2(16, 298)
 
 [node name="Doors" type="Node" parent="."]
 
