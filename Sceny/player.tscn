@@ -1308,7 +1308,7 @@ debug_color = Color(0, 0.56335086, 0.87526304, 0.41960785)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(74, 77)
 zoom = Vector2(1.5, 1.5)
-limit_left = 0
+limit_left = -96
 limit_top = 0
 limit_right = 1152
 limit_bottom = 816

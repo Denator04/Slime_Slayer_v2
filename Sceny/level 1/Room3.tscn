@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://brdlp7vruhhvq" path="res://enemies/enemy_m_1.tscn" id="10_ohiy6"]
 [ext_resource type="PackedScene" uid="uid://yqvuf38d0x2v" path="res://Sceny/level 1/DialogueUI.tscn" id="10_yil3g"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dxxv4"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ohiy6"]
 texture = ExtResource("2_6bcnc")
 0:0/size_in_atlas = Vector2i(4, 4)
 0:0/0 = 0
@@ -73,7 +73,7 @@ texture = ExtResource("2_6bcnc")
 24:0/0/texture_origin = Vector2i(0, 20)
 24:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25.171831, 0, 25.17183, 0.63726044, 15.294273, 10.8334465, -13.547375, 11.8539505, -16.25017, 12.107967, -19.117846, 7.6471367)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d417p"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yil3g"]
 texture = ExtResource("3_e571l")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/0 = 0
@@ -126,16 +126,16 @@ texture = ExtResource("3_e571l")
 
 [sub_resource type="TileSet" id="TileSet_gc7r3"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_dxxv4")
-sources/3 = SubResource("TileSetAtlasSource_d417p")
+sources/0 = SubResource("TileSetAtlasSource_ohiy6")
+sources/3 = SubResource("TileSetAtlasSource_yil3g")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tna1g"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6qm88"]
 texture = ExtResource("4_ea3ia")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rppht"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4pbmr"]
 texture = ExtResource("5_ohiy6")
 0:0/0 = 0
 0:1/0 = 0
@@ -177,10 +177,10 @@ texture = ExtResource("5_ohiy6")
 0:4/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_1rapf"]
-sources/0 = SubResource("TileSetAtlasSource_tna1g")
-sources/1 = SubResource("TileSetAtlasSource_rppht")
+sources/0 = SubResource("TileSetAtlasSource_6qm88")
+sources/1 = SubResource("TileSetAtlasSource_4pbmr")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wpxna"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qxvej"]
 texture = ExtResource("5_ohiy6")
 0:0/0 = 0
 1:0/0 = 0
@@ -222,16 +222,13 @@ texture = ExtResource("5_ohiy6")
 3:7/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_up46r"]
-sources/0 = SubResource("TileSetAtlasSource_wpxna")
+sources/0 = SubResource("TileSetAtlasSource_qxvej")
 
 [node name="3" type="Node2D"]
 script = ExtResource("1_6bcnc")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_0vudn")]
 position = Vector2(60, 303)
-
-[node name="Camera2D" parent="Player" index="1"]
-limit_left = -96
 
 [node name="Przeszkody" type="TileMapLayer" parent="."]
 y_sort_enabled = true
@@ -259,9 +256,13 @@ target_spawn = "EntranceFrom3To2"
 
 [node name="DoorTo4" parent="Doors" instance=ExtResource("6_yil3g")]
 position = Vector2(1143, 370)
+target_scene = "res://Sceny/level 1/Room4.tscn"
+target_spawn = "EntranceFrom3To4"
 
 [node name="DoorTo10" parent="Doors" instance=ExtResource("6_yil3g")]
 position = Vector2(520, 92)
+target_scene = "res://Sceny/level 1/Room10.tscn"
+target_spawn = "EntranceFrom3To10"
 
 [node name="HitBox" parent="Doors/DoorTo10" index="0"]
 position = Vector2(38, -92)
