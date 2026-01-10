@@ -5,6 +5,9 @@ class_name Player
 var is_dead = false
 var is_hit = false
 
+var knockback: Vector2 = Vector2.ZERO
+var knockback_timer: float = 0.0
+
 # 		Statystyki		##########
 var SPEED = 200.0
 var dmg = 5
@@ -30,25 +33,24 @@ func _ready():
 func _process(delta):
 	updateAnimationParameters()
 
-func _physics_process(delta: float) -> void:
-	var sprite_offset_y := Vector2(0, 0) # daj wartość np. Vector2(0, -8) jeśli trzeba
-	#sprite.global_position = global_position + sprite_offset_y
-	
-	if Input.is_action_pressed("ui_shift"):
-		sprint = 1.5
-	else: sprint = 1
-	
-	direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	
-	if direction:
-		velocity = direction * SPEED * sprint
+func _physics_process(delta):
+	if knockback_timer > 0.0:
+		velocity = knockback
+		knockback_timer -= delta
 	else:
-		velocity = Vector2.ZERO
+		direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 
-	direction = direction.normalized()
+		if Input.is_action_pressed("ui_shift"):
+			sprint = 1.5
+		else:
+			sprint = 1
+
+		if direction != Vector2.ZERO:
+			velocity = direction.normalized() * SPEED * sprint
+		else:
+			velocity = Vector2.ZERO
 
 	move_and_slide()
-	
 	
 	
 	
@@ -90,13 +92,14 @@ func take_damage(amount: int) -> void:
 	is_hit = true
 	hp -= amount
 	print("MY HP:", hp)
+	apply_knockback(-direction, 150, 0.1)
 	
 		
 	if hp <= 0:
 		dying()
 		
 	
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.1).timeout
 	is_hit = false
 
 		
@@ -107,4 +110,9 @@ func dying():
 	anPlayer.play("death")
 	await anPlayer.animation_finished
 	sprite.visible = false
+	
+
+func apply_knockback(direction: Vector2, force: float, knockback_duration: float) -> void:
+	knockback = direction.normalized() * force
+	knockback_timer = knockback_duration
 	
