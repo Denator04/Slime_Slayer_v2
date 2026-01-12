@@ -248,7 +248,7 @@ tile_set = SubResource("TileSet_eslk5")
 
 [node name="Door" parent="Doors" instance=ExtResource("6_lt3un")]
 target_scene = "res://Sceny/level 1/Room2.tscn"
-target_spawn = "EntranceFrom1To2"
+spawn_point = "EntranceFrom1To2"
 
 [node name="HitBox" parent="Doors/Door" index="0"]
 position = Vector2(1139, 414)

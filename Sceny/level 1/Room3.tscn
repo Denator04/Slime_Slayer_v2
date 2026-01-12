@@ -227,8 +227,11 @@ sources/0 = SubResource("TileSetAtlasSource_qxvej")
 [node name="3" type="Node2D"]
 script = ExtResource("1_6bcnc")
 
-[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_0vudn")]
+[node name="Player" parent="." instance=ExtResource("1_0vudn")]
 position = Vector2(60, 303)
+collision_mask = 15
+
+[node name="Player_Hitbox" parent="Player" index="0" groups=["Player"]]
 
 [node name="Przeszkody" type="TileMapLayer" parent="."]
 y_sort_enabled = true
@@ -252,17 +255,13 @@ tile_set = SubResource("TileSet_up46r")
 [node name="DoorTo2" parent="Doors" instance=ExtResource("6_yil3g")]
 position = Vector2(-82, 377)
 target_scene = "res://Sceny/level 1/Room2.tscn"
-target_spawn = "EntranceFrom3To2"
+spawn_point = "EntranceFrom3To2"
 
 [node name="DoorTo4" parent="Doors" instance=ExtResource("6_yil3g")]
 position = Vector2(1143, 370)
-target_scene = "res://Sceny/level 1/Room4.tscn"
-target_spawn = "EntranceFrom3To4"
 
 [node name="DoorTo10" parent="Doors" instance=ExtResource("6_yil3g")]
 position = Vector2(520, 92)
-target_scene = "res://Sceny/level 1/Room10.tscn"
-target_spawn = "EntranceFrom3To10"
 
 [node name="HitBox" parent="Doors/DoorTo10" index="0"]
 position = Vector2(38, -92)
@@ -289,6 +288,8 @@ frame = 1
 
 [node name="InteractArea" parent="NPC" index="1"]
 position = Vector2(119, 69)
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" parent="NPC/InteractArea" index="0"]
 position = Vector2(634, 201)

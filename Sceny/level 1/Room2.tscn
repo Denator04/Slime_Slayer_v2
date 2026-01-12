@@ -248,14 +248,14 @@ tile_set = SubResource("TileSet_7vckg")
 
 [node name="DoorTo1" parent="Doors" instance=ExtResource("7_cfvqn")]
 target_scene = "res://Sceny/level 1/level_1.tscn"
-target_spawn = "EntranceFrom2To1"
+spawn_point = "EntranceFrom2To1"
 
 [node name="HitBox" parent="Doors/DoorTo1" index="0"]
 position = Vector2(-1, 384)
 
 [node name="DoorTo3" parent="Doors" instance=ExtResource("7_cfvqn")]
 target_scene = "res://Sceny/level 1/Room3.tscn"
-target_spawn = "EntranceFrom2To3"
+spawn_point = "EntranceFrom2To3"
 
 [node name="HitBox" parent="Doors/DoorTo3" index="0"]
 position = Vector2(1141, 415)
