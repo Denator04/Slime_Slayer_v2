@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://b0ct5yjtlfnyp"]
+[gd_scene load_steps=17 format=4 uid="uid://b0ct5yjtlfnyp"]
 
 [ext_resource type="Script" uid="uid://6m1v45xeeliy" path="res://Sceny/level 1/level_1.gd" id="1_6k24t"]
 [ext_resource type="PackedScene" uid="uid://ctsdtdu4fowo2" path="res://Sceny/player.tscn" id="1_lt3un"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cs7b0uuye6npe" path="res://Assets/fences_64.png" id="6_4a0vl"]
 [ext_resource type="PackedScene" uid="uid://d0gvltan8hac5" path="res://Sceny/door.tscn" id="6_lt3un"]
 [ext_resource type="Texture2D" uid="uid://c73ay77lapr51" path="res://Assets/grass.png" id="7_h1ema"]
+[ext_resource type="PackedScene" uid="uid://brdlp7vruhhvq" path="res://enemies/enemy_m_1.tscn" id="8_h1ema"]
 [ext_resource type="Texture2D" uid="uid://dbvgcvof0m27t" path="res://Assets/floor_forest.png" id="8_ri721"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lt3un"]
@@ -255,5 +256,8 @@ position = Vector2(1139, 414)
 
 [node name="EntranceFrom2To1" type="Marker2D" parent="."]
 position = Vector2(1093, 377)
+
+[node name="enemy_M1" parent="." instance=ExtResource("8_h1ema")]
+position = Vector2(343, 340)
 
 [editable path="Doors/Door"]
