@@ -1297,6 +1297,7 @@ position = Vector2(1, 0)
 disable_mode = 2
 collision_layer = 2
 collision_mask = 3
+motion_mode = 1
 script = ExtResource("1_kpelt")
 
 [node name="Player_Hitbox" type="CollisionShape2D" parent="." groups=["player"]]
