@@ -94,18 +94,6 @@ tracks/6/keys = {
 "update": 0,
 "values": [0.0]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("weaponHitbox:monitorable")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_ey6xc"]
 resource_name = "attack_down"
@@ -181,18 +169,6 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("weaponHitbox:monitorable")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_jdclo"]
@@ -282,18 +258,6 @@ tracks/6/keys = {
 "update": 0,
 "values": [1.5917405]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("weaponHitbox:monitorable")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.26666668),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 
 [sub_resource type="Animation" id="Animation_eslk5"]
 resource_name = "attack_side_left"
@@ -370,18 +334,6 @@ tracks/5/keys = {
 "update": 1,
 "values": [true, false]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("weaponHitbox:monitorable")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 
 [sub_resource type="Animation" id="Animation_g80px"]
 resource_name = "attack_up"
@@ -453,18 +405,6 @@ tracks/5/path = NodePath("weaponHitbox:monitoring")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("weaponHitbox:monitorable")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -1368,7 +1308,7 @@ debug_color = Color(0, 0.56335086, 0.87526304, 0.41960785)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(74, 77)
 zoom = Vector2(1.5, 1.5)
-limit_left = 0
+limit_left = -96
 limit_top = 0
 limit_right = 1152
 limit_bottom = 816
@@ -1400,9 +1340,9 @@ scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_h1ema")
 animation = &"attack_side_B"
 
-[node name="weaponHitbox" type="Area2D" parent="." groups=["weapon"]]
+[node name="weaponHitbox" type="Area2D" parent="."]
 collision_layer = 8
-collision_mask = 17
+collision_mask = 4
 
 [node name="hitbox" type="CollisionShape2D" parent="weaponHitbox"]
 position = Vector2(1.5, 101.5)

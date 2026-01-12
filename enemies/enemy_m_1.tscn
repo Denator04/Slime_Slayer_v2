@@ -74,15 +74,11 @@ scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_j5u0l")
 debug_color = Color(0.98251337, 0, 0.3657151, 0.41960785)
 
-[node name="hurtbox_area" type="Area2D" parent="." groups=["enemies", "enemy_hurtboxes"]]
-collision_layer = 16
-collision_mask = 9
+[node name="hurtbox_area" type="Area2D" parent="." groups=["enemies"]]
 
-[node name="hurtbox" type="CollisionShape2D" parent="hurtbox_area" groups=["enemies", "enemy_hurtboxes"]]
+[node name="hurtbox" type="CollisionShape2D" parent="hurtbox_area" groups=["enemies"]]
 position = Vector2(-1.5, 4)
 shape = SubResource("RectangleShape2D_nb2sn")
 debug_color = Color(0.7245504, 0.47633898, 0.07308113, 0.41960785)
 
 [connection signal="body_entered" from="hitbox_area" to="." method="_on_hitbox_area_body_entered"]
-[connection signal="area_entered" from="hurtbox_area" to="." method="_on_hurtbox_area_area_entered"]
-[connection signal="body_entered" from="hurtbox_area" to="." method="_on_hurtbox_area_body_entered"]

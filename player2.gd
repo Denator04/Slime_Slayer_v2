@@ -7,7 +7,6 @@ var is_hit = false
 
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
-var lastDirection: Vector2 = Vector2.ZERO
 
 # 		Statystyki		##########
 var SPEED = 200.0
@@ -22,8 +21,6 @@ var hp = 5
 
 
 
-
-
 var direction :Vector2 = Vector2.ZERO
 var last_direction = Vector2.ZERO
 
@@ -31,21 +28,17 @@ var last_direction = Vector2.ZERO
 func _ready():
 	animation_tree.active = true
 	weapon_hitbox.monitoring = false
-	weapon_hitbox.monitorable = false
 
 
 func _process(delta):
 	updateAnimationParameters()
 
 func _physics_process(delta):
-	
 	if knockback_timer > 0.0:
 		velocity = knockback
 		knockback_timer -= delta
 	else:
 		direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-		if direction != Vector2.ZERO:
-			lastDirection = direction
 
 		if Input.is_action_pressed("ui_shift"):
 			sprint = 1.5
@@ -74,7 +67,6 @@ func updateAnimationParameters():
 		
 	if (Input.is_action_just_pressed("ui_c")):
 		animation_tree["parameters/conditions/swing"] = true
-		print(lastDirection)
 	else:
 		animation_tree["parameters/conditions/swing"] = false
 	
@@ -90,9 +82,8 @@ func updateAnimationParameters():
 
 
 func _on_weapon_hitbox_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemy_hurtboxes"):
-		var enemy = body.get_parent()
-		enemy.take_damage(dmg, lastDirection)
+	if body.is_in_group("enemies"):
+		body.take_damage(dmg)
 		
 		
 func take_damage(amount: int) -> void:
@@ -101,7 +92,7 @@ func take_damage(amount: int) -> void:
 	is_hit = true
 	hp -= amount
 	print("MY HP:", hp)
-	apply_knockback(-lastDirection, 150, 0.1)
+	apply_knockback(-direction, 150, 0.1)
 	
 		
 	if hp <= 0:
@@ -122,6 +113,6 @@ func dying():
 	
 
 func apply_knockback(direction: Vector2, force: float, knockback_duration: float) -> void:
-	knockback = direction * force
+	knockback = direction.normalized() * force
 	knockback_timer = knockback_duration
 	
