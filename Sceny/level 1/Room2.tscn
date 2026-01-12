@@ -260,7 +260,7 @@ target_spawn = "EntranceFrom2To3"
 [node name="HitBox" parent="Doors/DoorTo3" index="0"]
 position = Vector2(1141, 415)
 
-[node name="EntrenceFrom1To2" type="Marker2D" parent="."]
+[node name="EntranceFrom1To2" type="Marker2D" parent="."]
 position = Vector2(45, 383)
 
 [node name="EntranceFrom3To2" type="Marker2D" parent="."]
