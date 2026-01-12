@@ -1,11 +1,10 @@
-[gd_scene load_steps=15 format=4 uid="uid://bfd8c3esm6v43"]
+[gd_scene load_steps=14 format=4 uid="uid://bfd8c3esm6v43"]
 
 [ext_resource type="Script" uid="uid://bf70e5ai5xoyg" path="res://Sceny/level 1/room_9.gd" id="1_dbmal"]
 [ext_resource type="Texture2D" uid="uid://baa6s7pqc6uur" path="res://Assets/bigger_objects.png" id="2_h11ih"]
 [ext_resource type="Texture2D" uid="uid://cs7b0uuye6npe" path="res://Assets/fences_64.png" id="3_et0nj"]
 [ext_resource type="Texture2D" uid="uid://c73ay77lapr51" path="res://Assets/grass.png" id="4_11qur"]
 [ext_resource type="Texture2D" uid="uid://dbvgcvof0m27t" path="res://Assets/floor_forest.png" id="5_qqblh"]
-[ext_resource type="PackedScene" uid="uid://ctsdtdu4fowo2" path="res://Sceny/player.tscn" id="6_et0nj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1p643"]
 texture = ExtResource("2_h11ih")
@@ -239,5 +238,3 @@ tile_set = SubResource("TileSet_xxw3n")
 [node name="Cliff" type="TileMapLayer" parent="."]
 z_index = 1
 tile_set = SubResource("TileSet_neid2")
-
-[node name="Player" parent="." instance=ExtResource("6_et0nj")]

@@ -598,7 +598,6 @@ tracks/3/keys = {
 "values": [false]
 }
 
-<<<<<<< HEAD
 [sub_resource type="Animation" id="Animation_h1ema"]
 resource_name = "walk_down"
 length = 0.6
@@ -1293,11 +1292,6 @@ animations = [{
 size = Vector2(38.86996, 12.41622)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-=======
-[node name="Player_Hitbox" parent="Player" index="0" groups=["Player"]]
-
-[node name="Przeszkody" type="TileMapLayer" parent="."]
->>>>>>> ab77957f22fa542a3349a2ec5d978b35dc2b46f8
 y_sort_enabled = true
 position = Vector2(1, 0)
 disable_mode = 2
@@ -1356,44 +1350,4 @@ scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_u83dt")
 debug_color = Color(0.65457684, 0.5179122, 0, 0.41960785)
 
-<<<<<<< HEAD
 [connection signal="body_entered" from="weaponHitbox" to="." method="_on_weapon_hitbox_body_entered"]
-=======
-[node name="EntranceFrom10To3" type="Marker2D" parent="."]
-position = Vector2(552, 63)
-
-[node name="EntranceFrom4To3" type="Marker2D" parent="."]
-position = Vector2(1089, 372)
-
-[node name="default" type="Marker2D" parent="."]
-position = Vector2(21, 377)
-
-[node name="enemy_M1" parent="." instance=ExtResource("10_ohiy6")]
-position = Vector2(232, 364)
-
-[node name="NPC" parent="." groups=["NPC"] instance=ExtResource("3_ea3ia")]
-
-[node name="AnimatedSprite2D" parent="NPC" index="0"]
-position = Vector2(753, 261)
-scale = Vector2(2.25, 2.25)
-frame = 1
-
-[node name="InteractArea" parent="NPC" index="1"]
-position = Vector2(119, 69)
-
-[node name="CollisionShape2D" parent="NPC/InteractArea" index="0"]
-position = Vector2(634, 201)
-
-[node name="DialogueUI" parent="." instance=ExtResource("10_yil3g")]
-
-[node name="DialoguePanel" parent="DialogueUI" index="1"]
-offset_left = -103.0
-offset_top = 309.0
-offset_right = 136.0
-offset_bottom = 469.0
-
-[editable path="Player"]
-[editable path="Doors/DoorTo10"]
-[editable path="NPC"]
-[editable path="DialogueUI"]
->>>>>>> ab77957f22fa542a3349a2ec5d978b35dc2b46f8
