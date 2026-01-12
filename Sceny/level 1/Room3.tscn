@@ -230,6 +230,8 @@ script = ExtResource("1_6bcnc")
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_0vudn")]
 position = Vector2(60, 303)
 
+[node name="Player_Hitbox" parent="Player" index="0" groups=["Player"]]
+
 [node name="Przeszkody" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 position = Vector2(-60, 0)
@@ -276,6 +278,9 @@ position = Vector2(552, 63)
 
 [node name="EntranceFrom4To3" type="Marker2D" parent="."]
 position = Vector2(1089, 372)
+
+[node name="default" type="Marker2D" parent="."]
+position = Vector2(21, 377)
 
 [node name="enemy_M1" parent="." instance=ExtResource("10_ohiy6")]
 position = Vector2(232, 364)
