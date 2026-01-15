@@ -259,9 +259,13 @@ spawn_point = "EntranceFrom3To2"
 
 [node name="DoorTo4" parent="Doors" instance=ExtResource("6_yil3g")]
 position = Vector2(1143, 370)
+target_scene = "res://Sceny/level 1/Room4.tscn"
+spawn_point = "EntranceFrom3To4"
 
 [node name="DoorTo10" parent="Doors" instance=ExtResource("6_yil3g")]
 position = Vector2(520, 92)
+target_scene = "res://Sceny/level 1/Room10.tscn"
+spawn_point = "EntranceFrom3To10"
 
 [node name="HitBox" parent="Doors/DoorTo10" index="0"]
 position = Vector2(38, -92)

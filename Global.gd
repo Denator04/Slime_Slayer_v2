@@ -1,5 +1,4 @@
 extends Node
-# Autoload: Global
 
 var spawn_point_name: String = ""
 var next_scene_path: String = ""
@@ -13,7 +12,6 @@ func change_scene(path: String, spawn_point := "") -> void:
 	next_scene_path = path
 	spawn_point_name = spawn_point
 
-	# Zmiana sceny bezpiecznie po tej klatce
 	call_deferred("_do_change_scene")
 
 
