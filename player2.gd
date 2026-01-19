@@ -39,6 +39,9 @@ func _physics_process(delta):
 		knockback_timer -= delta
 	else:
 		direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		
+		if direction != Vector2.ZERO:
+			last_direction = direction
 
 		if Input.is_action_pressed("ui_shift"):
 			sprint = 1.5
@@ -83,7 +86,7 @@ func updateAnimationParameters():
 
 func _on_weapon_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):
-		body.take_damage(dmg)
+		body.take_damage(dmg,last_direction)
 		
 		
 func take_damage(amount: int) -> void:
@@ -93,12 +96,10 @@ func take_damage(amount: int) -> void:
 	hp -= amount
 	print("MY HP:", hp)
 	apply_knockback(-direction, 150, 0.1)
-	
 		
 	if hp <= 0:
 		dying()
-		
-	
+			
 	await get_tree().create_timer(0.1).timeout
 	is_hit = false
 
