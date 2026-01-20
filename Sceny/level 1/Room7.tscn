@@ -231,10 +231,14 @@ position = Vector2(16, 298)
 
 [node name="DoorTo8" parent="Doors" instance=ExtResource("3_en45l")]
 position = Vector2(1144, 381)
+target_scene = "res://Sceny/level 1/Room8.tscn"
+spawn_point = "EntranceFrom7To8"
 
 [node name="DoorTo6" parent="Doors" instance=ExtResource("3_en45l")]
 position = Vector2(556, 804)
 rotation = -1.5707964
+target_scene = "res://Sceny/level 1/Room6.tscn"
+spawn_point = "EntranceFrom7To6"
 
 [node name="EntranceFrom6To7" type="Marker2D" parent="Doors"]
 position = Vector2(554, 726)
