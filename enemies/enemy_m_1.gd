@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @onready var sprite = $Mytexture
+var player: Node2D
+
 
 var is_dead: bool = false
 var is_hit = false
@@ -15,6 +17,20 @@ const SPEED = 300.0
 
 
 
+## ZMIENNE WIDZENIA ##
+@export var ray_length: float = 200
+@export var ray_count: int = 5
+@export var between_rays_angle: float = 2.0
+var rays: Array = []
+
+
+
+
+func _ready():
+	player = get_tree().get_first_node_in_group("player")
+
+
+
 
 
 func _physics_process(delta: float) -> void:
@@ -24,6 +40,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity = Vector2.ZERO
 	
+	#RayHandler()
 	move_and_slide()
 
 
@@ -34,6 +51,7 @@ func dying():
 		await get_tree().create_timer(0.4).timeout
 		sprite.visible = true
 		await get_tree().create_timer(0.4).timeout
+		
 		
 func take_damage(amount: int, direction: Vector2) -> void:
 	if is_dead or is_hit:
@@ -61,4 +79,7 @@ func _on_hitbox_area_body_entered(body: Node2D) -> void:
 func apply_knockback(direction: Vector2, force: float, knockback_duration: float) -> void:
 	knockback = direction.normalized() * force
 	knockback_timer = knockback_duration
+	
+
+	
 	

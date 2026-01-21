@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://brdlp7vruhhvq"]
+[gd_scene load_steps=12 format=3 uid="uid://brdlp7vruhhvq"]
 
 [ext_resource type="Script" uid="uid://1xv15ut6ipt4" path="res://enemies/enemy_m_1.gd" id="1_nb2sn"]
 [ext_resource type="Texture2D" uid="uid://bygvwp704hg77" path="res://Assets/slime_sprite_2.png" id="1_o0uip"]
+[ext_resource type="Script" uid="uid://7mj1ar77gjww" path="res://enemies/ray_cast_2d.gd" id="3_qgto1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qgto1"]
 size = Vector2(18.5, 12)
@@ -80,5 +81,12 @@ debug_color = Color(0.98251337, 0, 0.3657151, 0.41960785)
 position = Vector2(-1.5, 4)
 shape = SubResource("RectangleShape2D_nb2sn")
 debug_color = Color(0.7245504, 0.47633898, 0.07308113, 0.41960785)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(1, 1)
+target_position = Vector2(0, 200)
+collision_mask = 2
+collide_with_areas = true
+script = ExtResource("3_qgto1")
 
 [connection signal="body_entered" from="hitbox_area" to="." method="_on_hitbox_area_body_entered"]
