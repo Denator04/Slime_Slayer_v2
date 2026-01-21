@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://2kixohv56lgk"]
+[gd_scene load_steps=22 format=4 uid="uid://2kixohv56lgk"]
 
 [ext_resource type="Script" uid="uid://cpmu8ujuvksjl" path="res://Sceny/level 1/room_14.gd" id="1_lf2k1"]
 [ext_resource type="Texture2D" uid="uid://baa6s7pqc6uur" path="res://Assets/bigger_objects.png" id="2_ip0yb"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://d0gvltan8hac5" path="res://Sceny/door.tscn" id="3_u7dhc"]
 [ext_resource type="Texture2D" uid="uid://c73ay77lapr51" path="res://Assets/grass.png" id="4_s4mvq"]
 [ext_resource type="Texture2D" uid="uid://dbvgcvof0m27t" path="res://Assets/floor_forest.png" id="5_u7dhc"]
+[ext_resource type="Script" uid="uid://cqudmlncjdsie" path="res://Sceny/level 1/chest.gd" id="8_vuj4m"]
+[ext_resource type="Texture2D" uid="uid://ekcky0vj5xsq" path="res://Assets/chest.png" id="9_pmyp5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vuj4m"]
 texture = ExtResource("2_ip0yb")
@@ -221,6 +223,36 @@ texture = ExtResource("5_u7dhc")
 [sub_resource type="TileSet" id="TileSet_hbjwx"]
 sources/0 = SubResource("TileSetAtlasSource_1ovxb")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo42n"]
+atlas = ExtResource("9_pmyp5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2aroh"]
+atlas = ExtResource("9_pmyp5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g8fo5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jo42n")
+}],
+"loop": true,
+"name": &"Close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2aroh")
+}],
+"loop": true,
+"name": &"Open",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3mvrx"]
+radius = 39.051247
+
 [node name="14" type="Node2D"]
 script = ExtResource("1_lf2k1")
 
@@ -253,3 +285,23 @@ tile_set = SubResource("TileSet_3mvrx")
 [node name="Cliff" type="TileMapLayer" parent="."]
 z_index = 1
 tile_set = SubResource("TileSet_hbjwx")
+
+[node name="Chest" type="Area2D" parent="."]
+position = Vector2(475, 211)
+collision_layer = 7
+collision_mask = 3
+script = ExtResource("8_vuj4m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Chest"]
+position = Vector2(4.5, -4.5)
+scale = Vector2(1.28125, 1.28125)
+sprite_frames = SubResource("SpriteFrames_g8fo5")
+animation = &"Close"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest"]
+position = Vector2(4, -1)
+shape = SubResource("CircleShape2D_3mvrx")
+debug_color = Color(0.21624154, 0.5927354, 0.6659646, 0.41960785)
+
+[connection signal="body_entered" from="Chest" to="Chest" method="_on_body_entered"]
+[connection signal="body_exited" from="Chest" to="Chest" method="_on_body_exited"]

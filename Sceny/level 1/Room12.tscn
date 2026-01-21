@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://c5t55wvtin0oa"]
+[gd_scene load_steps=26 format=4 uid="uid://c5t55wvtin0oa"]
 
 [ext_resource type="Script" uid="uid://deptn8lrcv6ua" path="res://Sceny/level 1/room_12.gd" id="1_ndjak"]
 [ext_resource type="PackedScene" uid="uid://ctsdtdu4fowo2" path="res://Sceny/player.tscn" id="2_amnef"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cs7b0uuye6npe" path="res://Assets/fences_64.png" id="3_vtl0r"]
 [ext_resource type="Texture2D" uid="uid://c73ay77lapr51" path="res://Assets/grass.png" id="4_amnef"]
 [ext_resource type="Texture2D" uid="uid://dbvgcvof0m27t" path="res://Assets/floor_forest.png" id="5_4tgpy"]
+[ext_resource type="Script" uid="uid://cqudmlncjdsie" path="res://Sceny/level 1/chest.gd" id="8_pmofj"]
+[ext_resource type="Texture2D" uid="uid://ekcky0vj5xsq" path="res://Assets/chest.png" id="9_vu0hi"]
+[ext_resource type="Texture2D" uid="uid://dqwy0mtwpi266" path="res://Assets/potions.png" id="10_vu0hi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pmofj"]
 texture = ExtResource("2_oymkf")
@@ -221,6 +224,54 @@ texture = ExtResource("5_4tgpy")
 [sub_resource type="TileSet" id="TileSet_itoyt"]
 sources/0 = SubResource("TileSetAtlasSource_cng80")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo42n"]
+atlas = ExtResource("9_vu0hi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2aroh"]
+atlas = ExtResource("9_vu0hi")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u271r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jo42n")
+}],
+"loop": true,
+"name": &"Close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2aroh")
+}],
+"loop": true,
+"name": &"Open",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ug3nf"]
+radius = 39.051247
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u271r"]
+atlas = ExtResource("10_vu0hi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ug3nf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u271r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dutwm"]
+radius = 22.090721
+
 [node name="12" type="Node2D"]
 script = ExtResource("1_ndjak")
 
@@ -253,3 +304,34 @@ tile_set = SubResource("TileSet_jdxd2")
 [node name="Cliff" type="TileMapLayer" parent="."]
 z_index = 1
 tile_set = SubResource("TileSet_itoyt")
+
+[node name="Chest" type="Area2D" parent="."]
+position = Vector2(475, 211)
+collision_layer = 7
+collision_mask = 3
+script = ExtResource("8_pmofj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Chest"]
+position = Vector2(4.5, -4.5)
+scale = Vector2(1.28125, 1.28125)
+sprite_frames = SubResource("SpriteFrames_u271r")
+animation = &"Close"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest"]
+position = Vector2(4, -1)
+shape = SubResource("CircleShape2D_ug3nf")
+debug_color = Color(0.21624154, 0.5927354, 0.6659646, 0.41960785)
+
+[node name="Health_Potion" type="Area2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Health_Potion"]
+position = Vector2(392.00003, 249)
+scale = Vector2(1.46875, 1.46875)
+sprite_frames = SubResource("SpriteFrames_ug3nf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Health_Potion"]
+position = Vector2(393, 252)
+shape = SubResource("CircleShape2D_dutwm")
+
+[connection signal="body_entered" from="Chest" to="Chest" method="_on_body_entered"]
+[connection signal="body_exited" from="Chest" to="Chest" method="_on_body_exited"]
