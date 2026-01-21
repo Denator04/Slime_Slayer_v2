@@ -111,6 +111,7 @@ func dying():
 	anPlayer.play("death")
 	await anPlayer.animation_finished
 	sprite.visible = false
+	get_tree().change_scene_to_file("res://Sceny/death_screne.tscn");
 	
 
 func apply_knockback(direction: Vector2, force: float, knockback_duration: float) -> void:
