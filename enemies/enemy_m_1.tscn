@@ -67,7 +67,7 @@ position = Vector2(-2, 0)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_utfuy")
 animation = &"idle"
-frame_progress = 0.085407175
+frame_progress = 0.17944704
 
 [node name="collision_shape" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 12.5)
@@ -84,7 +84,7 @@ debug_color = Color(0.7245504, 0.47633898, 0.07308113, 0.41960785)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(1, 1)
-target_position = Vector2(0, 200)
+target_position = Vector2(200, 0)
 collision_mask = 2
 collide_with_areas = true
 script = ExtResource("3_qgto1")

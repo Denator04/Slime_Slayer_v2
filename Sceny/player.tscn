@@ -1350,4 +1350,9 @@ scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_u83dt")
 debug_color = Color(0.65457684, 0.5179122, 0, 0.41960785)
 
+[node name="Marker2D" type="Marker2D" parent="."]
+modulate = Color(0.72028434, 0.0003942871, 0.72027934, 1)
+position = Vector2(2, 71)
+gizmo_extents = 18.0
+
 [connection signal="body_entered" from="weaponHitbox" to="." method="_on_weapon_hitbox_body_entered"]

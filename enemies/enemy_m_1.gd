@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var sprite = $Mytexture
+@onready var ray_cast: RayCast2D = $RayCast2D
 var player: Node2D
 
 
@@ -13,8 +14,9 @@ var knockbackDirection: Vector2 = Vector2.ZERO
 ###	STATYSTYKI	###
 var dmg = 1
 var hp = 100
-const SPEED = 300.0
+var SPEED = 75.0
 
+var direction = Vector2.ZERO
 
 
 ## ZMIENNE WIDZENIA ##
@@ -28,6 +30,7 @@ var rays: Array = []
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
+	sprite.play("idle")
 
 
 
@@ -37,8 +40,10 @@ func _physics_process(delta: float) -> void:
 	if knockback_timer > 0.0:
 		velocity = knockback
 		knockback_timer -= delta
+		
 	else:
-		velocity = Vector2.ZERO
+		PlayerDetection()
+		print("ok")
 	
 	#RayHandler()
 	move_and_slide()
@@ -61,7 +66,7 @@ func take_damage(amount: int, direction: Vector2) -> void:
 	hp -= amount
 	print("Enemy HP:", hp)
 
-	apply_knockback(direction, 350, 0.05)
+	apply_knockback(direction, 500, 0.05)
 
 	if hp <= 0:
 		dying()
@@ -73,13 +78,20 @@ func take_damage(amount: int, direction: Vector2) -> void:
 
 func _on_hitbox_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		body.take_damage(dmg)
+		body.take_damage(dmg,direction)
 		
 		
 func apply_knockback(direction: Vector2, force: float, knockback_duration: float) -> void:
 	knockback = direction.normalized() * force
 	knockback_timer = knockback_duration
-	
+	SPEED = 0.0
+	await get_tree().create_timer(0.5).timeout
+	SPEED = 75.0
 
 	
+func PlayerDetection() -> void:
+	if ray_cast.collides() && !player.is_dead:
+		direction = Vector2.RIGHT.rotated(ray_cast.rotation)
+		velocity = direction * SPEED
+	else: velocity = Vector2.ZERO
 	

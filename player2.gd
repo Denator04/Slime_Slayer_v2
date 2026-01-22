@@ -18,6 +18,7 @@ var hp = 5
 @onready var anPlayer = $AnimationPlayer
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var weapon_hitbox = $weaponHitbox
+var last_hit_enemy: CharacterBody2D = null
 
 
 
@@ -89,13 +90,13 @@ func _on_weapon_hitbox_body_entered(body: Node2D) -> void:
 		body.take_damage(dmg,last_direction)
 		
 		
-func take_damage(amount: int) -> void:
+func take_damage(amount: int, enemy_direction: Vector2) -> void:
 	if is_dead or is_hit == true:
 		return
 	is_hit = true
 	hp -= amount
 	print("MY HP:", hp)
-	apply_knockback(-direction, 150, 0.1)
+	apply_knockback(enemy_direction, 500, 0.1)
 		
 	if hp <= 0:
 		dying()
