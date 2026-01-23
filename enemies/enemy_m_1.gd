@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 		
 	else:
 		PlayerDetection()
-		print("ok")
+		#print(global_position)
 	
 	#RayHandler()
 	move_and_slide()
@@ -93,5 +93,22 @@ func PlayerDetection() -> void:
 	if ray_cast.collides() && !player.is_dead:
 		direction = Vector2.RIGHT.rotated(ray_cast.rotation)
 		velocity = direction * SPEED
-	else: velocity = Vector2.ZERO
+	else:
+		Patrol(Vector2(200.00,200.00), Vector2(0.0,0.0), SPEED) 
+		
+	
+	
+func Patrol(target: Vector2,target2: Vector2, speed: float) -> void:
+	var dir = (target - global_position)
+	var t1_reached: bool = false
+	var t2_reached:bool = true
+	var dir2 = (target2 - global_position)
+	if((dir > Vector2(0.5,0.5) || dir < Vector2(-0.5,-0.5)) && !t1_reached):
+		t2_reached = true
+		velocity = dir.normalized() * speed
+		print(dir)
+	elif((dir2 > Vector2(0.5,0.5) || dir2 < Vector2(-0.5,-0.5)) && !t2_reached):
+		t1_reached = true
+		velocity = dir2.normalized() * speed
+ 
 	
