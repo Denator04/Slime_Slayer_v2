@@ -11,6 +11,10 @@ var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
 var knockbackDirection: Vector2 = Vector2.ZERO
 
+var t1_reached := false
+var t2_reached := false
+
+
 ###	STATYSTYKI	###
 var dmg = 1
 var hp = 100
@@ -100,15 +104,17 @@ func PlayerDetection() -> void:
 	
 func Patrol(target: Vector2,target2: Vector2, speed: float) -> void:
 	var dir = (target - global_position)
-	var t1_reached: bool = false
-	var t2_reached:bool = true
 	var dir2 = (target2 - global_position)
-	if((dir > Vector2(0.5,0.5) || dir < Vector2(-0.5,-0.5)) && !t1_reached):
-		t2_reached = true
+	if(global_position.distance_to(target) > 5.0 && !t1_reached):
 		velocity = dir.normalized() * speed
 		print(dir)
-	elif((dir2 > Vector2(0.5,0.5) || dir2 < Vector2(-0.5,-0.5)) && !t2_reached):
-		t1_reached = true
+	elif(global_position.distance_to(target) > 5.0 && !t2_reached):
 		velocity = dir2.normalized() * speed
+	if((dir < Vector2(0.5,0.5)) || dir > Vector2(-0.5,-0.5)):
+		t1_reached = true
+		t2_reached = false
+	elif(dir2 < Vector2(0.5,0.5) || dir2 > Vector2(-0.5,-0.5)):
+		t2_reached = true
+		t1_reached = false
  
 	
