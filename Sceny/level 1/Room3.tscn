@@ -281,6 +281,7 @@ position = Vector2(552, 63)
 position = Vector2(1089, 372)
 
 [node name="enemy_M1" parent="." instance=ExtResource("10_ohiy6")]
+y_sort_enabled = true
 position = Vector2(232, 364)
 
 [node name="NPC" parent="." groups=["NPC"] instance=ExtResource("3_ea3ia")]
