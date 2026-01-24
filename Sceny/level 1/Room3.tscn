@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://fng8vc5awjbh"]
+[gd_scene load_steps=20 format=4 uid="uid://fng8vc5awjbh"]
 
 [ext_resource type="PackedScene" uid="uid://ctsdtdu4fowo2" path="res://Sceny/player.tscn" id="1_0vudn"]
 [ext_resource type="Script" uid="uid://ronarcpdj0mr" path="res://Sceny/level 1/Room3.gd" id="1_6bcnc"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d0gvltan8hac5" path="res://Sceny/door.tscn" id="6_yil3g"]
 [ext_resource type="PackedScene" uid="uid://brdlp7vruhhvq" path="res://enemies/enemy_m_1.tscn" id="10_ohiy6"]
 [ext_resource type="PackedScene" uid="uid://yqvuf38d0x2v" path="res://Sceny/level 1/DialogueUI.tscn" id="10_yil3g"]
+[ext_resource type="PackedScene" uid="uid://fjwlmii1njov" path="res://enemies/enemy_blue.tscn" id="11_yil3g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ohiy6"]
 texture = ExtResource("2_6bcnc")
@@ -282,7 +283,7 @@ position = Vector2(1089, 372)
 
 [node name="enemy_M1" parent="." instance=ExtResource("10_ohiy6")]
 y_sort_enabled = true
-position = Vector2(232, 364)
+position = Vector2(494, 363)
 
 [node name="NPC" parent="." groups=["NPC"] instance=ExtResource("3_ea3ia")]
 
@@ -306,6 +307,12 @@ offset_left = -103.0
 offset_top = 309.0
 offset_right = 136.0
 offset_bottom = 469.0
+
+[node name="enemy_M2" parent="." instance=ExtResource("10_ohiy6")]
+position = Vector2(489, 303)
+
+[node name="enemy_Blue" parent="." instance=ExtResource("11_yil3g")]
+position = Vector2(491, 414)
 
 [editable path="Player"]
 [editable path="Doors/DoorTo10"]
