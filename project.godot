@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Slime_Slayer_v2"
-run/main_scene="uid://c5t55wvtin0oa"
+run/main_scene="uid://2kixohv56lgk"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Global="*res://Global.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Dialogue="*res://Sceny/level 1/DialogueUI.tscn"
+HUD="*res://Sceny/hud.tscn"
 
 [dotnet]
 
