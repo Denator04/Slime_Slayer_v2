@@ -8,6 +8,8 @@ var is_hit = false
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
 
+var speed_buff_active := false
+
 # 		Statystyki		##########
 var SPEED = 200.0
 var dmg = 5

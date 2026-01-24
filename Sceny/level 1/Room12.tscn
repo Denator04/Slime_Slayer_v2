@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://c5t55wvtin0oa"]
+[gd_scene load_steps=31 format=4 uid="uid://c5t55wvtin0oa"]
 
 [ext_resource type="Script" uid="uid://deptn8lrcv6ua" path="res://Sceny/level 1/room_12.gd" id="1_ndjak"]
 [ext_resource type="PackedScene" uid="uid://ctsdtdu4fowo2" path="res://Sceny/player.tscn" id="2_amnef"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ekcky0vj5xsq" path="res://Assets/chest.png" id="9_vu0hi"]
 [ext_resource type="Script" uid="uid://bstn11g4tfn65" path="res://Sceny/level 1/health_potion.gd" id="10_u271r"]
 [ext_resource type="Texture2D" uid="uid://dqwy0mtwpi266" path="res://Assets/potions.png" id="10_vu0hi"]
+[ext_resource type="Script" uid="uid://8g1iyivoecyp" path="res://Sceny/level 1/speed_potion.gd" id="12_ug3nf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pmofj"]
 texture = ExtResource("2_oymkf")
@@ -350,31 +351,39 @@ position = Vector2(4, -1)
 shape = SubResource("CircleShape2D_ug3nf")
 debug_color = Color(0.21624154, 0.5927354, 0.6659646, 0.41960785)
 
-[node name="Health_Potion" type="Area2D" parent="."]
+[node name="Health_Potion" type="Area2D" parent="Chest"]
+position = Vector2(-475, -211)
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("10_u271r")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Health_Potion"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Chest/Health_Potion"]
 position = Vector2(392.00003, 249)
 scale = Vector2(1.46875, 1.46875)
 sprite_frames = SubResource("SpriteFrames_ug3nf")
 animation = &"red"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Health_Potion"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest/Health_Potion"]
 position = Vector2(393, 252)
 shape = SubResource("CircleShape2D_dutwm")
 
-[node name="Speed_Potion" type="Area2D" parent="."]
+[node name="Speed_Potion" type="Area2D" parent="Chest"]
+position = Vector2(-475, -211)
+collision_layer = 2
+collision_mask = 15
+script = ExtResource("12_ug3nf")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Speed_Potion"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Chest/Speed_Potion"]
 position = Vector2(571.00006, 251)
 scale = Vector2(1.46875, 1.46875)
 sprite_frames = SubResource("SpriteFrames_ug3nf")
 animation = &"green"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Speed_Potion"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest/Speed_Potion"]
 position = Vector2(571, 255)
 shape = SubResource("CircleShape2D_jdxd2")
 
 [connection signal="body_entered" from="Chest" to="Chest" method="_on_body_entered"]
 [connection signal="body_exited" from="Chest" to="Chest" method="_on_body_exited"]
-[connection signal="body_entered" from="Health_Potion" to="Health_Potion" method="_on_body_entered"]
+[connection signal="body_entered" from="Chest/Health_Potion" to="Chest/Health_Potion" method="_on_body_entered"]
+[connection signal="body_entered" from="Chest/Speed_Potion" to="Chest/Speed_Potion" method="_on_body_entered"]

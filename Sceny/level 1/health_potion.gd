@@ -1,8 +1,12 @@
 extends Area2D
 
-var player_in_range = false
-var collected = false
+@export var heal_amount := 2
+
+func _ready() -> void:
+	body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
-		$Player.
+		body.hp += heal_amount
+		print("HP zwiększone do:", body.hp)
+		queue_free()
