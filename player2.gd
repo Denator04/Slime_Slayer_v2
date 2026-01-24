@@ -40,11 +40,11 @@ func _ready():
 	# ⏳ poczekaj 1 klatkę aż HUD się załaduje (AutoLoad)
 	await get_tree().process_frame
 
-	# ===== INIT HUD =====
-	HUD.set_health(hp, max_hp)
-	HUD.set_armor(armor, max_armor)
-	HUD.set_portrait(portrait_texture)
-	HUD.set_weapon_icon(weapon_icon)
+	## ===== INIT HUD =====
+	#HUD.set_health(hp, max_hp)
+	#HUD.set_armor(armor, max_armor)
+	#HUD.set_portrait(portrait_texture)
+	#HUD.set_weapon_icon(weapon_icon)
 
 
 func _process(delta):
@@ -104,11 +104,11 @@ func take_damage(amount: int, enemy_direction: Vector2) -> void:
 
 	if armor > 0:
 		armor -= 1
-		HUD.set_armor(armor, max_armor)
+		#HUD.set_armor(armor, max_armor)
 	else:
 		hp -= amount
 		hp = max(hp, 0)
-		HUD.set_health(hp, max_hp)
+		#HUD.set_health(hp, max_hp)
 
 	print("MY HP:", hp)
 
