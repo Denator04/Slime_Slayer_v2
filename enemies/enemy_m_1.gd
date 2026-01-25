@@ -19,7 +19,7 @@ var wasDetected:= false
 
 ###	STATYSTYKI	###
 var dmg = 1
-var hp = 100
+var hp = 5
 var SPEED = 75.0
 
 var direction = Vector2.ZERO
@@ -60,12 +60,9 @@ func _physics_process(delta: float) -> void:
 
 func dying():
 	is_dead = true
-	for i in 10:
-		sprite.visible = false
-		await get_tree().create_timer(0.4).timeout
-		sprite.visible = true
-		await get_tree().create_timer(0.4).timeout
-		
+	sprite.play("death")
+	await sprite.animation_finished
+	queue_free()
 		
 func take_damage(amount: int, direction: Vector2) -> void:
 	if is_dead or is_hit:
@@ -99,7 +96,9 @@ func apply_knockback(direction: Vector2, force: float, knockback_duration: float
 
 	
 func PlayerDetection() -> void:
-	if ray_cast.collides() && !player.is_dead:
+	if(is_dead):
+		velocity = Vector2.ZERO
+	elif ray_cast.collides() && !player.is_dead:
 		direction = Vector2.RIGHT.rotated(ray_cast.rotation)
 		velocity = direction * SPEED
 		wasDetected = true

@@ -22,7 +22,7 @@ var wasDetected:= false
 
 ###	STATYSTYKI	###
 var dmg = 1
-var hp = 100
+var hp = 5
 var SPEED = 60.0
 
 var direction = Vector2.ZERO
@@ -67,11 +67,9 @@ func _physics_process(delta: float) -> void:
 
 func dying():
 	is_dead = true
-	for i in 10:
-		sprite.visible = false
-		await get_tree().create_timer(0.4).timeout
-		sprite.visible = true
-		await get_tree().create_timer(0.4).timeout
+	sprite.play("death")
+	await sprite.animation_finished
+	queue_free()
 		
 		
 func take_damage(amount: int, direction: Vector2) -> void:
@@ -106,7 +104,9 @@ func apply_knockback(direction: Vector2, force: float, knockback_duration: float
 
 	
 func PlayerDetection() -> void:
-	if(global_position.distance_to(player.global_position) <= 175):
+	if(is_dead):
+		velocity = Vector2.ZERO
+	elif(global_position.distance_to(player.global_position) <= 175):
 		shoot()
 		sprite.play("shoot")
 		velocity = Vector2.ZERO
@@ -141,13 +141,18 @@ func Patrol(target: Vector2) -> void:
 	
 	
 func shoot() -> void:
-	await get_tree().create_timer(1).timeout
-	if(can_shoot):
-		can_shoot = false
-		var bullet = bullet_path.instantiate()
-		bullet.dir=ray_cast.rotation
-		bullet.pos = bulletPos.global_position
-		bullet.rota = global_rotation
-		get_parent().add_child(bullet)
-		await get_tree().create_timer(2).timeout
-		can_shoot = true
+	if(is_dead):
+		return
+	else:
+		await get_tree().create_timer(1).timeout
+		if(can_shoot):
+			can_shoot = false
+			var bullet = bullet_path.instantiate()
+			bullet.dir=ray_cast.rotation
+			bullet.pos = bulletPos.global_position
+			bullet.rota = global_rotation
+			if(is_dead):
+				return
+			get_parent().add_child(bullet)
+			await get_tree().create_timer(2).timeout
+			can_shoot = true
