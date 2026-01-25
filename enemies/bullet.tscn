@@ -52,7 +52,7 @@ script = ExtResource("1_67an8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kylra")
-frame_progress = 0.029561963
+frame_progress = 0.22961748
 
 [node name="Area2D" type="Area2D" parent="."]
 
