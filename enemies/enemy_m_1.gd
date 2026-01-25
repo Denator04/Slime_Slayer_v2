@@ -126,3 +126,4 @@ func Patrol(target: Vector2) -> void:
 	elif(global_position.distance_to(startingPosition) <= 5):
 		t1_reached = false
 	
+#func fire()

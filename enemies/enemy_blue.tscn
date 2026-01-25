@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://fjwlmii1njov"]
+[gd_scene load_steps=17 format=3 uid="uid://fjwlmii1njov"]
 
 [ext_resource type="Script" uid="uid://t78sbap5dnjn" path="res://enemies/enemy_blue.gd" id="1_6ia7u"]
 [ext_resource type="Texture2D" uid="uid://c30ripi0b751o" path="res://Assets/slime-y tekstury.png" id="2_6ia7u"]
@@ -23,6 +23,26 @@ region = Rect2(64, 32, 32, 32)
 atlas = ExtResource("2_6ia7u")
 region = Rect2(96, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kutey"]
+atlas = ExtResource("2_6ia7u")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfcpi"]
+atlas = ExtResource("2_6ia7u")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_admcu"]
+atlas = ExtResource("2_6ia7u")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmcpx"]
+atlas = ExtResource("2_6ia7u")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhyu1"]
+atlas = ExtResource("2_6ia7u")
+region = Rect2(128, 64, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_6ia7u"]
 animations = [{
 "frames": [{
@@ -41,10 +61,33 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kutey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfcpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_admcu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmcpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmcpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhyu1")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 3.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5u0l"]
-size = Vector2(16, 2.5)
+size = Vector2(18, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nb2sn"]
 size = Vector2(37, 24)
@@ -58,18 +101,19 @@ collision_layer = 4
 collision_mask = 3
 
 [node name="hitbox" type="CollisionShape2D" parent="hitbox_area" groups=["enemy_hitboxes"]]
-position = Vector2(-1, 20)
+position = Vector2(-1, 0)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_qgto1")
 
 [node name="Mytexture" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, 0)
+position = Vector2(-1, -20)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_6ia7u")
-animation = &"idle"
+animation = &"shoot"
+frame_progress = 0.3661297
 
 [node name="collision_shape" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 29.5)
+position = Vector2(-1, 0)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_j5u0l")
 debug_color = Color(0.98251337, 0, 0.3657151, 0.41960785)
@@ -77,15 +121,18 @@ debug_color = Color(0.98251337, 0, 0.3657151, 0.41960785)
 [node name="hurtbox_area" type="Area2D" parent="." groups=["enemies"]]
 
 [node name="hurtbox" type="CollisionShape2D" parent="hurtbox_area" groups=["enemies"]]
-position = Vector2(-1, 20)
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_nb2sn")
 debug_color = Color(0.7245504, 0.47633898, 0.07308113, 0.41960785)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(1, 20)
-target_position = Vector2(200, 0)
+position = Vector2(1, 0)
+target_position = Vector2(300, 0)
 collision_mask = 2
 collide_with_areas = true
 script = ExtResource("3_5jchl")
+
+[node name="bulletPos" type="Node2D" parent="."]
+position = Vector2(0, 8)
 
 [connection signal="body_entered" from="hitbox_area" to="." method="_on_hitbox_area_body_entered"]
