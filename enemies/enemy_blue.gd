@@ -22,7 +22,7 @@ var wasDetected:= false
 
 ###	STATYSTYKI	###
 var dmg = 1
-var hp = 5
+var hp = 15
 var SPEED = 60.0
 
 var direction = Vector2.ZERO

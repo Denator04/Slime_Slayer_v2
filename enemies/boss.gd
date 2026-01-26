@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @onready var sprite = $Mytexture
 @onready var ray_cast: RayCast2D = $RayCast2D
+@onready var bulletPos = $bulletPos
+var bullet_path = preload("res://enemies/bullet_boss.tscn")
 var player: Node2D
 
 
@@ -10,6 +12,7 @@ var is_hit = false
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
 var knockbackDirection: Vector2 = Vector2.ZERO
+var can_shoot:= true
 
 var t1_reached := false
 var startingPosition: Vector2
@@ -19,10 +22,11 @@ var wasDetected:= false
 
 ###	STATYSTYKI	###
 var dmg = 1
-var hp = 25
-var SPEED = 75.0
+var hp = 100
+var SPEED = 60.0
 
 var direction = Vector2.ZERO
+var last_direction = Vector2.ZERO
 
 
 ## ZMIENNE WIDZENIA ##
@@ -46,12 +50,22 @@ func _ready():
 
 
 func _physics_process(delta: float) -> void:
+	if direction != Vector2.ZERO:
+		last_direction = direction
+		
+	if velocity == Vector2.ZERO:
+		$collision_shape.disabled = true
+	else:
+		$collision_shape.disabled = false
+		
 	if knockback_timer > 0.0:
 		velocity = knockback
 		knockback_timer -= delta
 		
 	else:
+		
 		PlayerDetection()
+		
 		#print(global_position)
 	
 	#RayHandler()
@@ -63,6 +77,7 @@ func dying():
 	sprite.play("death")
 	await sprite.animation_finished
 	queue_free()
+		
 		
 func take_damage(amount: int, direction: Vector2) -> void:
 	if is_dead or is_hit:
@@ -84,7 +99,13 @@ func take_damage(amount: int, direction: Vector2) -> void:
 
 func _on_hitbox_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		body.take_damage(dmg,direction)
+		print("cos")
+		body.take_damage(dmg,body.get_last_direction() * -1)
+
+
+func _on_hitbox_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("weapon"):
+		take_damage(player.get_dmg(), player.get_last_direction())
 		
 		
 func apply_knockback(direction: Vector2, force: float, knockback_duration: float) -> void:
@@ -98,11 +119,17 @@ func apply_knockback(direction: Vector2, force: float, knockback_duration: float
 func PlayerDetection() -> void:
 	if(is_dead):
 		velocity = Vector2.ZERO
+	elif(global_position.distance_to(player.global_position) <= 500):
+		shoot()
+		sprite.play("shoot")
+		velocity = Vector2.ZERO
 	elif ray_cast.collides() && !player.is_dead:
+		sprite.play("idle")
 		direction = Vector2.RIGHT.rotated(ray_cast.rotation)
 		velocity = direction * SPEED
 		wasDetected = true
 	elif(wasDetected):
+		sprite.play("idle")
 		direction = (startingPosition - global_position).normalized()
 		velocity = direction * SPEED
 		if(global_position.distance_to(startingPosition) <= 5):
@@ -120,9 +147,27 @@ func Patrol(target: Vector2) -> void:
 		velocity = patrolDirection * SPEED
 	else:
 		velocity = -patrolDirection * SPEED
-	if(global_position.distance_to(target) <= 5):
+	if(global_position.distance_to(target) <= 50.66):
 		t1_reached = true
 	elif(global_position.distance_to(startingPosition) <= 5):
 		t1_reached = false
 	
-#func fire()
+	
+func shoot() -> void:
+	if(is_dead):
+		return
+	else:
+		await get_tree().create_timer(1).timeout
+		if(can_shoot):
+			can_shoot = false
+			for i in 3:
+				var bullet = bullet_path.instantiate()
+				bullet.dir=ray_cast.rotation
+				bullet.pos = bulletPos.global_position
+				bullet.rota = global_rotation
+				if(is_dead):
+					return
+				get_parent().add_child(bullet)
+				await get_tree().create_timer(0.2).timeout	
+			await get_tree().create_timer(2).timeout
+			can_shoot = true

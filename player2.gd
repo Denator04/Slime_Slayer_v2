@@ -36,6 +36,8 @@ var last_direction: Vector2 = Vector2.ZERO
 func _ready():
 	animation_tree.active = true
 	weapon_hitbox.monitoring = false
+	weapon_hitbox.monitorable = false
+	disable_weapon()
 
 	# ⏳ poczekaj 1 klatkę aż HUD się załaduje (AutoLoad)
 	await get_tree().process_frame
@@ -129,10 +131,26 @@ func dying():
 	anPlayer.play("death")
 	await anPlayer.animation_finished
 
-	sprite.visible = false
+	queue_free()
 	get_tree().change_scene_to_file("res://Sceny/death_screne.tscn")
 
 
 func apply_knockback(direction: Vector2, force: float, knockback_duration: float) -> void:
 	knockback = direction.normalized() * force
 	knockback_timer = knockback_duration
+
+func get_last_direction() -> Vector2:
+	return last_direction
+	
+func get_dmg() -> int:
+	return dmg
+
+func enable_weapon():
+	weapon_hitbox.monitoring = true
+	weapon_hitbox.monitorable = true
+	weapon_hitbox.get_node("hitbox").disabled = false
+
+func disable_weapon():
+	weapon_hitbox.monitoring = false
+	weapon_hitbox.monitorable = false
+	weapon_hitbox.get_node("hitbox").disabled = true

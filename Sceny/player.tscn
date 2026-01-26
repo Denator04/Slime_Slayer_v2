@@ -1,9 +1,10 @@
-[gd_scene load_steps=93 format=3 uid="uid://ctsdtdu4fowo2"]
+[gd_scene load_steps=94 format=3 uid="uid://ctsdtdu4fowo2"]
 
 [ext_resource type="Script" uid="uid://dseqljj1r0d4v" path="res://player2.gd" id="1_kpelt"]
 [ext_resource type="Texture2D" uid="uid://b5jkcr0fqtmb4" path="res://Assets/SS_knight/knight-sheet.png" id="2_vc0eu"]
 [ext_resource type="Texture2D" uid="uid://xkwjuhl517su" path="res://Assets/knight.png" id="3_d8yg6"]
 [ext_resource type="Texture2D" uid="uid://bbl5vfremrkqo" path="res://Assets/death animation.png" id="3_yfq7u"]
+[ext_resource type="Script" uid="uid://b83ygh2afha4" path="res://Sceny/weapon_hitbox.gd" id="5_idtnd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6k24t"]
 size = Vector2(36, 39)
@@ -94,6 +95,18 @@ tracks/6/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("weaponHitbox:monitorable")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_ey6xc"]
 resource_name = "attack_down"
@@ -169,6 +182,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("weaponHitbox:monitorable")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_jdclo"]
@@ -258,6 +283,18 @@ tracks/6/keys = {
 "update": 0,
 "values": [1.5917405]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("weaponHitbox:monitorable")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_eslk5"]
 resource_name = "attack_side_left"
@@ -329,6 +366,18 @@ tracks/5/path = NodePath("weaponHitbox:monitoring")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("weaponHitbox:monitorable")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -410,6 +459,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("weaponHitbox:monitorable")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_yfq7u"]
 resource_name = "death"
@@ -481,7 +542,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath("weaponHitbox:monitoring")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
@@ -490,6 +551,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("weaponHitbox/hitbox:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1000, 101.5)]
 }
 
 [sub_resource type="Animation" id="Animation_jaxcd"]
@@ -534,7 +607,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath("weaponHitbox:monitoring")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
@@ -543,6 +616,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("weaponHitbox/hitbox:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1000, 101.5)]
 }
 
 [sub_resource type="Animation" id="Animation_4a0vl"]
@@ -587,7 +672,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath("weaponHitbox:monitoring")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
@@ -596,6 +681,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("weaponHitbox/hitbox:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1000, 101.5)]
 }
 
 [sub_resource type="Animation" id="Animation_h1ema"]
@@ -640,7 +737,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath("weaponHitbox:monitoring")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
@@ -649,6 +746,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("weaponHitbox/hitbox:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1000, 101.5)]
 }
 
 [sub_resource type="Animation" id="Animation_ri721"]
@@ -692,7 +801,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath("weaponHitbox:monitoring")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
@@ -701,6 +810,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("weaponHitbox/hitbox:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1000, 101.5)]
 }
 
 [sub_resource type="Animation" id="Animation_6k24t"]
@@ -745,7 +866,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath("weaponHitbox:monitoring")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
@@ -754,6 +875,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("weaponHitbox/hitbox:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1000, 101.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6xxrs"]
@@ -1289,7 +1422,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u83dt"]
-size = Vector2(38.86996, 12.41622)
+size = Vector2(38.86996, 23.854067)
 
 [node name="Player" type="CharacterBody2D" groups=["Player", "player"]]
 y_sort_enabled = true
@@ -1339,11 +1472,13 @@ scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_h1ema")
 animation = &"attack_side_B"
 
-[node name="weaponHitbox" type="Area2D" parent="."]
+[node name="weaponHitbox" type="Area2D" parent="." groups=["weapon"]]
+position = Vector2(0, -1)
 collision_layer = 8
 collision_mask = 4
+script = ExtResource("5_idtnd")
 
-[node name="hitbox" type="CollisionShape2D" parent="weaponHitbox"]
+[node name="hitbox" type="CollisionShape2D" parent="weaponHitbox" groups=["weapon"]]
 position = Vector2(1.5, 101.5)
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_u83dt")

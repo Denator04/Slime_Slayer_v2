@@ -1,12 +1,13 @@
-[gd_scene load_steps=16 format=4 uid="uid://cynrm84cnr6ca"]
+[gd_scene load_steps=17 format=4 uid="uid://cynrm84cnr6ca"]
 
-[ext_resource type="Script" uid="uid://bpwkfqo0mi4a4" path="res://Sceny/level 1/room_8.gd" id="1_555xf"]
+[ext_resource type="Script" path="res://Sceny/level 1/room_8.gd" id="1_555xf"]
 [ext_resource type="Texture2D" uid="uid://baa6s7pqc6uur" path="res://Assets/bigger_objects.png" id="2_ff2xn"]
 [ext_resource type="PackedScene" uid="uid://ctsdtdu4fowo2" path="res://Sceny/player.tscn" id="2_qs3kf"]
 [ext_resource type="Texture2D" uid="uid://cs7b0uuye6npe" path="res://Assets/fences_64.png" id="3_31q6q"]
 [ext_resource type="PackedScene" uid="uid://d0gvltan8hac5" path="res://Sceny/door.tscn" id="3_s6500"]
 [ext_resource type="Texture2D" uid="uid://c73ay77lapr51" path="res://Assets/grass.png" id="4_qs3kf"]
 [ext_resource type="Texture2D" uid="uid://dbvgcvof0m27t" path="res://Assets/floor_forest.png" id="5_s6500"]
+[ext_resource type="PackedScene" uid="uid://bayypwn5wk2aa" path="res://enemies/Boss.tscn" id="8_s6500"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w0w51"]
 texture = ExtResource("2_ff2xn")
@@ -253,3 +254,6 @@ tile_set = SubResource("TileSet_p5lnu")
 [node name="Cliff" type="TileMapLayer" parent="."]
 z_index = 1
 tile_set = SubResource("TileSet_we1ht")
+
+[node name="Boss" parent="." instance=ExtResource("8_s6500")]
+position = Vector2(908.00006, 352)

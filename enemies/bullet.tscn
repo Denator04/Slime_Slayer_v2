@@ -19,7 +19,7 @@ region = Rect2(32, 0, 16, 16)
 atlas = ExtResource("1_wm2to")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_kylra"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_67an8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -51,8 +51,7 @@ collision_mask = 3
 script = ExtResource("1_67an8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_kylra")
-frame_progress = 0.22961748
+sprite_frames = SubResource("SpriteFrames_67an8")
 
 [node name="Area2D" type="Area2D" parent="."]
 
