@@ -1,0 +1,167 @@
+[gd_scene load_steps=9 format=3 uid="uid://cqtbobgx7semd"]
+
+[ext_resource type="Script" uid="uid://ddl0heniqbsn0" path="res://Sceny/shop.gd" id="1_jjrbj"]
+[ext_resource type="Texture2D" uid="uid://dbfykdcpcwxpx" path="res://Assets/sklep_tlo.png" id="1_mh5g2"]
+[ext_resource type="Texture2D" uid="uid://h6jer5wwu3mg" path="res://Assets/golden_axe.png" id="2_rdgsn"]
+[ext_resource type="Texture2D" uid="uid://bnrvixoyul1e3" path="res://Assets/shoes.png" id="4_t8t2n"]
+[ext_resource type="Texture2D" uid="uid://b1gepkxlh58pu" path="res://Assets/Health_Potion.png" id="5_oka4c"]
+[ext_resource type="Texture2D" uid="uid://dvoqk8leh0ony" path="res://Assets/Armor_Potion.png" id="6_le6a1"]
+[ext_resource type="FontFile" uid="uid://b61h2k33cn3uo" path="res://arial.ttf" id="7_aitjp"]
+[ext_resource type="Texture2D" uid="uid://58b042pef0xb" path="res://Assets/coin.png" id="8_d8mva"]
+
+[node name="Shop" type="Node2D"]
+script = ExtResource("1_jjrbj")
+
+[node name="Tło" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1920, 965)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_mh5g2")
+expand_mode = 1
+
+[node name="Button Manager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Golden Axe" type="Button" parent="Button Manager"]
+layout_mode = 0
+offset_left = 894.0
+offset_top = 172.0
+offset_right = 1190.0
+offset_bottom = 394.0
+text = "Golden Axe"
+icon = ExtResource("2_rdgsn")
+expand_icon = true
+
+[node name="Boots" type="Button" parent="Button Manager"]
+layout_mode = 0
+offset_left = 893.0
+offset_top = 525.0
+offset_right = 1191.0
+offset_bottom = 761.0
+text = "Flying Boots"
+icon = ExtResource("4_t8t2n")
+alignment = 2
+expand_icon = true
+
+[node name="Health_Potion" type="Button" parent="Button Manager"]
+layout_mode = 0
+offset_left = 1263.0
+offset_top = 177.0
+offset_right = 1571.0
+offset_bottom = 393.0
+text = "Health Potion"
+icon = ExtResource("5_oka4c")
+expand_icon = true
+
+[node name="Armor_Potion" type="Button" parent="Button Manager"]
+layout_mode = 0
+offset_left = 1267.0
+offset_top = 530.0
+offset_right = 1580.0
+offset_bottom = 756.0
+text = "Armor Potion"
+icon = ExtResource("6_le6a1")
+expand_icon = true
+
+[node name="Exit" type="Button" parent="Button Manager"]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 759.0
+offset_right = 532.0
+offset_bottom = 859.0
+theme_override_fonts/font = ExtResource("7_aitjp")
+theme_override_font_sizes/font_size = 34
+text = "POWRÓT"
+
+[node name="Axe_Price" type="RichTextLabel" parent="."]
+offset_left = 909.0
+offset_top = 415.0
+offset_right = 1055.0
+offset_bottom = 516.0
+theme_override_fonts/normal_font = ExtResource("7_aitjp")
+theme_override_font_sizes/normal_font_size = 45
+text = "10 x"
+scroll_active = false
+tab_size = 5
+horizontal_alignment = 1
+vertical_alignment = 1
+structured_text_bidi_override_options = [null]
+
+[node name="Coin" type="TextureRect" parent="."]
+offset_left = 1006.0
+offset_top = 396.0
+offset_right = 1146.0
+offset_bottom = 536.0
+texture = ExtResource("8_d8mva")
+
+[node name="Health_Potion_Price" type="RichTextLabel" parent="."]
+offset_left = 1302.0
+offset_top = 415.0
+offset_right = 1448.0
+offset_bottom = 516.0
+theme_override_fonts/normal_font = ExtResource("7_aitjp")
+theme_override_font_sizes/normal_font_size = 45
+text = "5 x"
+scroll_active = false
+tab_size = 5
+horizontal_alignment = 1
+vertical_alignment = 1
+structured_text_bidi_override_options = [null]
+
+[node name="Coin2" type="TextureRect" parent="."]
+offset_left = 1399.0
+offset_top = 396.0
+offset_right = 1539.0
+offset_bottom = 536.0
+texture = ExtResource("8_d8mva")
+
+[node name="Boots_Price" type="RichTextLabel" parent="."]
+offset_left = 907.0
+offset_top = 771.0
+offset_right = 1053.0
+offset_bottom = 872.0
+theme_override_fonts/normal_font = ExtResource("7_aitjp")
+theme_override_font_sizes/normal_font_size = 45
+text = "15 x"
+scroll_active = false
+tab_size = 5
+horizontal_alignment = 1
+vertical_alignment = 1
+structured_text_bidi_override_options = [null]
+
+[node name="Coin3" type="TextureRect" parent="."]
+offset_left = 1004.0
+offset_top = 752.0
+offset_right = 1144.0
+offset_bottom = 892.0
+texture = ExtResource("8_d8mva")
+
+[node name="Armor_Potion_Price" type="RichTextLabel" parent="."]
+offset_left = 1302.0
+offset_top = 769.0
+offset_right = 1448.0
+offset_bottom = 870.0
+theme_override_fonts/normal_font = ExtResource("7_aitjp")
+theme_override_font_sizes/normal_font_size = 45
+text = "5 x"
+scroll_active = false
+tab_size = 5
+horizontal_alignment = 1
+vertical_alignment = 1
+structured_text_bidi_override_options = [null]
+
+[node name="Coin4" type="TextureRect" parent="."]
+offset_left = 1399.0
+offset_top = 750.0
+offset_right = 1539.0
+offset_bottom = 890.0
+texture = ExtResource("8_d8mva")
+
+[connection signal="pressed" from="Button Manager/Golden Axe" to="." method="_on_golden_axe_pressed"]
+[connection signal="pressed" from="Button Manager/Boots" to="." method="_on_boots_pressed"]
+[connection signal="pressed" from="Button Manager/Health_Potion" to="." method="_on_health_potion_pressed"]
+[connection signal="pressed" from="Button Manager/Armor_Potion" to="." method="_on_armor_potion_pressed"]
+[connection signal="pressed" from="Button Manager/Exit" to="." method="_on_exit_pressed"]

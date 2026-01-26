@@ -10,15 +10,13 @@ var knockback_timer: float = 0.0
 var speed_buff_active := false
 
 # ===== STATYSTYKI =====
-var SPEED = 200.0
-var dmg = 5
+var SPEED = Global.SPEED
+var dmg = Global.dmg
 var sprint = 1
-
-var max_hp := 5
-var hp := 5
-
-var max_armor := 5
-var armor := 0
+var max_hp = 5
+var hp = Global.hp
+var armor = Global.armor
+var money = Global.money
 
 @export var portrait_texture: Texture2D
 @export var weapon_icon: Texture2D

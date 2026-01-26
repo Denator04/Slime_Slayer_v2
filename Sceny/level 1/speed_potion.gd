@@ -14,13 +14,13 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 
 	body.speed_buff_active = true
-	body.SPEED += speed_bonus
-	print("Speed zwiększony:", body.SPEED)
+	Global.SPEED += speed_bonus
+	print("Speed zwiększony:", Global.SPEED)
 
 	queue_free()
 
 	await get_tree().create_timer(duration).timeout
 
-	body.SPEED -= speed_bonus
+	Global.SPEED -= speed_bonus
 	body.speed_buff_active = false
-	print("Speed wrócił do normy:", body.SPEED)
+	print("Speed wrócił do normy:", Global.SPEED)
