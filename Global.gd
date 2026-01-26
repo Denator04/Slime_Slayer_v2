@@ -2,6 +2,13 @@ extends Node
 
 var spawn_point_name: String = ""
 var next_scene_path: String = ""
+var spawn_point_place: String = ""
+
+var SPEED = 200.0
+var dmg = 5
+var hp := 5
+var armor := 0
+var money = 20
 
 
 func change_scene(path: String, spawn_point := "") -> void:

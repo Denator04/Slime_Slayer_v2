@@ -7,6 +7,6 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
-		body.hp += heal_amount
+		Global.hp += heal_amount
 		print("HP zwiększone do: ", body.hp)
 		queue_free()
