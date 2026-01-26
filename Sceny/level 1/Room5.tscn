@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://cka8hcpk2asic"]
+[gd_scene load_steps=17 format=4 uid="uid://cka8hcpk2asic"]
 
 [ext_resource type="PackedScene" uid="uid://ctsdtdu4fowo2" path="res://Sceny/player.tscn" id="1_50gno"]
 [ext_resource type="Script" uid="uid://cqvyssp6hbcqa" path="res://Sceny/level 1/room_5.gd" id="1_cetn8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cs7b0uuye6npe" path="res://Assets/fences_64.png" id="4_t50kv"]
 [ext_resource type="Texture2D" uid="uid://c73ay77lapr51" path="res://Assets/grass.png" id="5_uqemc"]
 [ext_resource type="Texture2D" uid="uid://dbvgcvof0m27t" path="res://Assets/floor_forest.png" id="6_dyekq"]
+[ext_resource type="PackedScene" uid="uid://brdlp7vruhhvq" path="res://enemies/enemy_m_1.tscn" id="8_se736"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1h31x"]
 texture = ExtResource("3_se736")
@@ -265,5 +266,11 @@ tile_set = SubResource("TileSet_o36vh")
 [node name="Cliff" type="TileMapLayer" parent="."]
 z_index = 1
 tile_set = SubResource("TileSet_8f88j")
+
+[node name="enemy_M1" parent="." instance=ExtResource("8_se736")]
+position = Vector2(220, 384)
+
+[node name="enemy_M2" parent="." instance=ExtResource("8_se736")]
+position = Vector2(931, 491)
 
 [editable path="Doors/DoorTo6"]

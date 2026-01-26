@@ -1,12 +1,13 @@
-[gd_scene load_steps=16 format=4 uid="uid://dvb7y5jos5r3l"]
+[gd_scene load_steps=17 format=4 uid="uid://dvb7y5jos5r3l"]
 
-[ext_resource type="Script" uid="uid://cqpjsegnwebm0" path="res://Sceny/level 1/room_6.gd" id="1_clt1c"]
+[ext_resource type="Script" path="res://Sceny/level 1/room_6.gd" id="1_clt1c"]
 [ext_resource type="PackedScene" uid="uid://ctsdtdu4fowo2" path="res://Sceny/player.tscn" id="2_usyxb"]
 [ext_resource type="PackedScene" uid="uid://d0gvltan8hac5" path="res://Sceny/door.tscn" id="3_0dqv3"]
 [ext_resource type="Texture2D" uid="uid://baa6s7pqc6uur" path="res://Assets/bigger_objects.png" id="4_xgw75"]
 [ext_resource type="Texture2D" uid="uid://cs7b0uuye6npe" path="res://Assets/fences_64.png" id="5_1kseh"]
 [ext_resource type="Texture2D" uid="uid://c73ay77lapr51" path="res://Assets/grass.png" id="6_f4e0u"]
 [ext_resource type="Texture2D" uid="uid://dbvgcvof0m27t" path="res://Assets/floor_forest.png" id="7_0vyc3"]
+[ext_resource type="PackedScene" uid="uid://brdlp7vruhhvq" path="res://enemies/enemy_m_1.tscn" id="8_0dqv3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_usyxb"]
 texture = ExtResource("4_xgw75")
@@ -271,3 +272,6 @@ tile_set = SubResource("TileSet_jmmkw")
 [node name="Cliff" type="TileMapLayer" parent="."]
 z_index = 1
 tile_set = SubResource("TileSet_2gk8e")
+
+[node name="enemy_M1" parent="." instance=ExtResource("8_0dqv3")]
+position = Vector2(829, 394)
