@@ -225,7 +225,7 @@ sources/0 = SubResource("TileSetAtlasSource_4a0vl")
 script = ExtResource("1_6k24t")
 
 [node name="Player" parent="." instance=ExtResource("1_lt3un")]
-position = Vector2(197, 212)
+position = Vector2(186, 262)
 
 [node name="Przeszkody" type="TileMapLayer" parent="."]
 y_sort_enabled = true
