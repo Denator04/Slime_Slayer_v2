@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://fng8vc5awjbh"]
+[gd_scene load_steps=20 format=4 uid="uid://fng8vc5awjbh"]
 
 [ext_resource type="PackedScene" uid="uid://ctsdtdu4fowo2" path="res://Sceny/player.tscn" id="1_0vudn"]
 [ext_resource type="Script" uid="uid://ronarcpdj0mr" path="res://Sceny/level 1/Room3.gd" id="1_6bcnc"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c73ay77lapr51" path="res://Assets/grass.png" id="4_ea3ia"]
 [ext_resource type="Texture2D" uid="uid://dbvgcvof0m27t" path="res://Assets/floor_forest.png" id="5_ohiy6"]
 [ext_resource type="PackedScene" uid="uid://d0gvltan8hac5" path="res://Sceny/door.tscn" id="6_yil3g"]
+[ext_resource type="Script" uid="uid://cle8t0ru0co4k" path="res://Sceny/level 1/shop_entrance.gd" id="10_ohiy6"]
 [ext_resource type="PackedScene" uid="uid://yqvuf38d0x2v" path="res://Sceny/level 1/DialogueUI.tscn" id="10_yil3g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ohiy6"]
@@ -223,6 +224,9 @@ texture = ExtResource("5_ohiy6")
 [sub_resource type="TileSet" id="TileSet_up46r"]
 sources/0 = SubResource("TileSetAtlasSource_qxvej")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_yil3g"]
+radius = 40.112343
+
 [node name="3" type="Node2D"]
 position = Vector2(-1, 0)
 script = ExtResource("1_6bcnc")
@@ -302,6 +306,18 @@ offset_left = -103.0
 offset_top = 309.0
 offset_right = 136.0
 offset_bottom = 469.0
+
+[node name="Shop_entrance" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("10_ohiy6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shop_entrance"]
+position = Vector2(845, 177)
+shape = SubResource("CircleShape2D_yil3g")
+
+[connection signal="body_entered" from="Shop_entrance" to="Shop_entrance" method="_on_body_entered"]
+[connection signal="body_exited" from="Shop_entrance" to="Shop_entrance" method="_on_body_exited"]
 
 [editable path="Player"]
 [editable path="Doors/DoorTo10"]

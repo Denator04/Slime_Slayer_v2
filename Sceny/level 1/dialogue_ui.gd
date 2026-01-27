@@ -15,6 +15,7 @@ var last_line = null
 func _ready() -> void:
 	visible = false
 	process_mode = Node.PROCESS_MODE_DISABLED
+	
 
 
 func start_dialogue(path: String, start_node: String) -> void:
@@ -62,6 +63,9 @@ func _update_line() -> void:
 
 	label.text = text
 
+
+func _go_to_shop():
+	get_tree().change_scene_to_file("res://Sceny/Shop.tscn")
 
 func _on_dialogue_end() -> void:
 	visible = false

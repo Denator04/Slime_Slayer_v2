@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var sprite = $Mytexture
 @onready var ray_cast: RayCast2D = $RayCast2D
+
 var player: Node2D
 
 

@@ -1,17 +1,34 @@
 ~ start
-npc: Witaj, podróżniku. Co chcesz zrobić?
+npc: Kto idzie? Kim jesteś? Czego chcesz?
+player: Spokojnie staruszku, nic Ci nie zrobię
+npc: Ah, jak dobrze usłyszeć ludzki głos, a nie chlupot szlamu
 
 - Kim jesteś?
-	npc: Jestem strażnikiem tej okolicy.
-	player: Szukam przygód.
-	npc: W takim razie powodzenia.
-	- Wróć do rozmowy => start
+	npc: Nikim szczególnym, uciekłem z mojej wioski przed tymi diabelstwami i starałem się przeżyć.
+	player: Słabo Ci to chyba wychodziło, skoro obok Ciebie plątały się te potwory.
+	npc: Łatwo to mówić jak masz sprawne oczy gówniarzu.
+	=> first
 
-- Pokaż sklep
-	npc: Jasne — zaprowadzę cię do sklepu.
-	@go_to_shop
-	=> END
+~ first
+- Czym są te potwory?
+	npc: Skąd przychodzisz, że nigdy ich nie widziałeś?
+	npc: To Slime'y - choć wydają się niegroźne potrafią nieźle dokuczyć.
+	npc: Przewodzi nimi Król Szlamu - wielu śmiałków próbowało go pokonać, lecz bezskutecznie.
+	=> second
 
-- Do zobaczenia
-	npc: Wróć, gdy będziesz mnie potrzebował.
+~ second
+- Gdzie mogę go znaleźć?
+	npc: Wczoraj szukając jedzenia na północny-wschód od nas słyszałem potworny chlupot.
+	npc: Mogę postawić moje sztuczne zęby, że to był on.
+	player: Nie musisz, wierzę Ci.
+	=> third
+
+~ third
+- Rozumiem, zabije tego potwora.
+	npc: Dzielnyś jesteś, ale mój nos podpowiada mi, że twoje wyposażenie może temu nie podołać
+	npc: Tak się składa, że mam parę rzeczy na sprzedaż, zajrzyj za to drzewo obok mnie to Ci wszystko pokażę
+	=> third
+
+- Bywaj
+	npc: Ja jestem, a nie bywam
 	=> END
