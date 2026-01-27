@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ur3x182w4i5k"]
+
+[ext_resource type="Texture2D" uid="uid://dtuxu7ldbwc5r" path="res://Assets/End_Image.png" id="1_d6vd8"]
+
+[node name="End" type="Node2D"]
+
+[node name="tło" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1900, 960)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_d6vd8")

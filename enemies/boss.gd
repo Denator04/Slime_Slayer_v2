@@ -77,6 +77,7 @@ func dying():
 	sprite.play("death")
 	await sprite.animation_finished
 	queue_free()
+	get_tree().change_scene_to_file("res://Sceny/end.tscn")
 		
 		
 func take_damage(amount: int, direction: Vector2) -> void:

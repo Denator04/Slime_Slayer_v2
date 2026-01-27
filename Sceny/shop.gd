@@ -8,7 +8,6 @@ func buy_item(price: int, button_name: String, price_label: Node, coin_icon: Nod
 		Global.money -= price
 		apply_effect.call()
 
-		# ukrywanie UI po zakupie
 		buttons.get_node(button_name).hide()
 		price_label.hide()
 		coin_icon.hide()

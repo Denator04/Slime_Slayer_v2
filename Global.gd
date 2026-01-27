@@ -8,7 +8,7 @@ var SPEED = 200.0
 var dmg = 5
 var hp := 5
 var armor := 0
-var money = 20
+var money = 30
 
 
 func change_scene(path: String, spawn_point := "") -> void:
